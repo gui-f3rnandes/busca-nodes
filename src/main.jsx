@@ -5,6 +5,18 @@ import './styles.css';
 
 const fields=[['Cidade / POP','Cidade_POP'],['OLT','OLT'],['PON','PON'],['VLAN','VLAN'],['Quantidade de clientes','Qtd_Clientes'],['DSW / Uplink','DSW_Uplink'],['DIO','DIO'],['Observação','Observacao'],['IP de gerência','IP_Gerencia'],['Equipamento','Equipamento']];
 const normalize=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const exactFields=['VLAN','PON','OLT','Cidade_POP','Bairro','Equipamento'];
+function matchScore(item,q){
+  const nq=normalize(q); if(!nq) return 99;
+  const nodeNorm=normalize(item.Node);
+  if(nodeNorm===nq) return 0; // node é exatamente o termo buscado
+  const nodeParts=nodeNorm.split(/[^a-z0-9]+/).filter(Boolean);
+  if(nodeParts.includes(nq)) return 1; // node combinado (ex. "5 / 7") tem uma parte exata
+  if(nodeNorm.startsWith(nq)) return 2; // node começa com o termo
+  if(exactFields.some(f=>normalize(item[f])===nq)) return 3; // outro campo bate exatamente
+  if(nodeNorm.includes(nq)) return 4; // node contém o termo em algum lugar
+  return 5; // só bateu em outro campo, de forma aproximada
+}
 function highlight(value,q){
   const text=String(value??''); if(!q.trim()) return text;
   const parts=text.split(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'ig'));
@@ -13,10 +25,15 @@ function highlight(value,q){
 function App(){
  const [q,setQ]=useState(''),[tech,setTech]=useState('ALL'),[city,setCity]=useState(''),[open,setOpen]=useState(null);
  const cities=useMemo(()=>[...new Set(data.map(x=>x.Cidade_POP).filter(Boolean))].sort(),[]);
- const filtered=useMemo(()=>data.filter(x=>{
-   const matchesTech=tech==='ALL'||x.Tecnologia===tech; const matchesCity=!city||x.Cidade_POP===city;
-   const hay=normalize(Object.values(x).join(' ')); return matchesTech&&matchesCity&&(!q||hay.includes(normalize(q)));
- }),[q,tech,city]);
+ const filtered=useMemo(()=>{
+   const nq=normalize(q);
+   const list=data.filter(x=>{
+     const matchesTech=tech==='ALL'||x.Tecnologia===tech; const matchesCity=!city||x.Cidade_POP===city;
+     const hay=normalize(Object.values(x).join(' ')); return matchesTech&&matchesCity&&(!q||hay.includes(nq));
+   });
+   if(!nq) return list;
+   return list.map((item,idx)=>({item,idx,score:matchScore(item,q)})).sort((a,b)=>a.score-b.score||a.idx-b.idx).map(x=>x.item);
+ },[q,tech,city]);
  return <div className="wrap">
   <header className="top"><div className="eyebrow-row"><span className="dot"/> NR Telecom — infraestrutura EPON / GPON</div><h1>Busca de nodes</h1><div className="sub">Digite um node, VLAN, OLT ou bairro para encontrar a linha correspondente, com todos os dados daquele ponto.</div></header>
   <div className="searchbar"><input value={q} onChange={e=>{setQ(e.target.value);setOpen(null)}} placeholder="ex.: 1031, VLAN 620, G8PSX-01-LME, Panorama…" autoComplete="off" spellCheck="false"/>{q&&<button className="clear" onClick={()=>setQ('')} aria-label="Limpar">×</button>}</div>

@@ -37,53 +37,56 @@ function getQueryParts(query) {
   };
 }
 
+function getSearchText(item) {
+  return [
+    item.Node,
+    item.Bairro,
+    item.Cidade_POP,
+    item.OLT,
+    item.PON,
+    item.VLAN,
+    item.Qtd_Clientes,
+    item.DSW_Uplink,
+    item.DIO,
+    item.Observacao,
+    item.IP_Gerencia,
+    item.Equipamento,
+  ].map(normalize).join(' ');
+}
+
 function scoreItem(item, query) {
   const { normalized, withoutNodeLabel, isNodeQuery, isNumericQuery } = getQueryParts(query);
-  if (!normalized) return 0;
+  if (!normalized) return 1;
 
   const node = normalize(item.Node);
-  const values = [
-    normalize(item.Bairro),
-    normalize(item.Cidade_POP),
-    normalize(item.OLT),
-    normalize(item.PON),
-    normalize(item.VLAN),
-    normalize(item.Qtd_Clientes),
-    normalize(item.DSW_Uplink),
-    normalize(item.DIO),
-    normalize(item.Observacao),
-    normalize(item.IP_Gerencia),
-    normalize(item.Equipamento),
-  ];
+  const nodeTerm = withoutNodeLabel || normalized;
 
-  // Para pesquisas numéricas, a correspondência no campo Node tem prioridade
-  // absoluta. Assim, "1" encontra primeiro o Node 1, depois 10, 100 etc.,
-  // sem fazer os Nodes 21, 31 ou VLANs com o número subirem indevidamente.
+  // Consultas numéricas devem procurar exclusivamente pelo identificador do Node.
+  // Isso evita que "1", por exemplo, retorne Nodes apenas porque possuem 1 em
+  // uma VLAN, IP, quantidade de clientes ou outro campo sem relação.
   if (isNodeQuery || isNumericQuery) {
-    const nodeTerm = withoutNodeLabel || normalized;
     if (node === nodeTerm) return 100000;
-    if (node.startsWith(nodeTerm) && nodeTerm) return 90000 - node.length;
-    if (node.includes(nodeTerm) && nodeTerm) return 70000 - node.indexOf(nodeTerm) * 10 - node.length;
+    if (node.startsWith(nodeTerm)) return 90000 - node.length;
+    if (node.includes(nodeTerm)) return 70000 - node.indexOf(nodeTerm) * 10 - node.length;
+    return 0;
   }
 
-  let best = 0;
+  const searchText = getSearchText(item);
+  if (!searchText.includes(normalized)) return 0;
+
+  let best = 100;
+  const values = [
+    item.Node, item.Bairro, item.Cidade_POP, item.OLT, item.PON, item.VLAN,
+    item.Qtd_Clientes, item.DSW_Uplink, item.DIO, item.Observacao,
+    item.IP_Gerencia, item.Equipamento,
+  ].map(normalize);
+
   for (const value of values) {
     if (!value) continue;
-
-    if (value === normalized) best = Math.max(best, 80000);
-    if (value.startsWith(normalized)) best = Math.max(best, 60000 - value.length);
-
-    const escaped = normalized.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const wordBoundary = new RegExp(`(^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`);
-    if (wordBoundary.test(value)) best = Math.max(best, 50000 - value.length);
-
-    const position = value.indexOf(normalized);
-    if (position >= 0) best = Math.max(best, 30000 - position * 20 - value.length);
+    if (value === normalized) best = Math.max(best, 10000);
+    else if (value.startsWith(normalized)) best = Math.max(best, 7000);
+    else if (value.includes(normalized)) best = Math.max(best, 3000);
   }
-
-  // Correspondências em outros campos continuam válidas, mas ficam abaixo
-  // das correspondências no próprio Node quando a busca é numérica.
-  if (isNumericQuery || isNodeQuery) best = Math.min(best, 20000);
   return best;
 }
 

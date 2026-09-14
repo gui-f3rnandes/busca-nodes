@@ -32,7 +32,9 @@ export default async function handler(request, response) {
 
   if (request.method === 'POST') {
     const configured = process.env.NODES_EDIT_PASSWORD;
-    const sent = (request.headers.authorization || '').replace(/^Bearer\s+/i, '');
+    // Importante: usamos um cabeçalho próprio (não "Authorization") para a senha de
+    // publicação, para não colidir com o Basic Auth do middleware.js que protege o site.
+    const sent = request.headers['x-edit-password'] || '';
     if (!configured) {
       return response.status(500).json({error: 'Servidor sem NODES_EDIT_PASSWORD configurada. Defina essa variável de ambiente no projeto Vercel antes de salvar alterações.'});
     }

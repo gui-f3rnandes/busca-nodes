@@ -108,7 +108,7 @@ function App(){
    const password=window.prompt('Senha para publicar esta base para todos os visitantes do site:');
    if(password===null) return; // cancelou
    setSaving(true);
-   fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${password}`},body:JSON.stringify(data)})
+   fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','X-Edit-Password':password},body:JSON.stringify(data)})
      .then(async r=>{
        const body=await r.json().catch(()=>({}));
        if(!r.ok) throw new Error(body.error||`erro ${r.status}`);

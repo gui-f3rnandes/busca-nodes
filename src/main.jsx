@@ -25,10 +25,6 @@ const normalize = (value) =>
 
 const textOf = (value) => String(value ?? '').trim();
 
-function getNodeNumber(item) {
-  const raw = textOf(item.Node).replace(/\D/g, '');
-  return raw ? Number(raw) : Number.POSITIVE_INFINITY;
-}
 
 function getQueryParts(query) {
   const normalized = normalize(query);
@@ -46,10 +42,8 @@ function scoreItem(item, query) {
   if (!normalized) return 0;
 
   const node = normalize(item.Node);
-  const neighborhood = normalize(item.Bairro);
   const values = [
-    node,
-    neighborhood,
+    normalize(item.Bairro),
     normalize(item.Cidade_POP),
     normalize(item.OLT),
     normalize(item.PON),
@@ -62,11 +56,14 @@ function scoreItem(item, query) {
     normalize(item.Equipamento),
   ];
 
-  // Consultas como "Node 10" devem priorizar o Node 10 exato,
-  // em vez de tratar o número apenas como uma substring qualquer.
+  // Para pesquisas numéricas, a correspondência no campo Node tem prioridade
+  // absoluta. Assim, "1" encontra primeiro o Node 1, depois 10, 100 etc.,
+  // sem fazer os Nodes 21, 31 ou VLANs com o número subirem indevidamente.
   if (isNodeQuery || isNumericQuery) {
-    if (node === withoutNodeLabel || node === normalized) return 100000;
-    if (node.startsWith(withoutNodeLabel) && withoutNodeLabel) return 90000 - node.length;
+    const nodeTerm = withoutNodeLabel || normalized;
+    if (node === nodeTerm) return 100000;
+    if (node.startsWith(nodeTerm) && nodeTerm) return 90000 - node.length;
+    if (node.includes(nodeTerm) && nodeTerm) return 70000 - node.indexOf(nodeTerm) * 10 - node.length;
   }
 
   let best = 0;
@@ -74,24 +71,19 @@ function scoreItem(item, query) {
     if (!value) continue;
 
     if (value === normalized) best = Math.max(best, 80000);
-    if (value === withoutNodeLabel && (isNodeQuery || isNumericQuery)) best = Math.max(best, 79000);
-
     if (value.startsWith(normalized)) best = Math.max(best, 60000 - value.length);
 
-    const wordBoundary = new RegExp(`(^|[^a-z0-9])${normalized.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?=$|[^a-z0-9])`);
+    const escaped = normalized.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const wordBoundary = new RegExp(`(^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`);
     if (wordBoundary.test(value)) best = Math.max(best, 50000 - value.length);
 
     const position = value.indexOf(normalized);
-    if (position >= 0) {
-      best = Math.max(best, 30000 - position * 20 - value.length);
-    }
+    if (position >= 0) best = Math.max(best, 30000 - position * 20 - value.length);
   }
 
-  // O campo Node tem prioridade sobre os demais campos quando a busca é numérica.
-  if ((isNumericQuery || isNodeQuery) && node.includes(withoutNodeLabel)) {
-    best += 10000;
-  }
-
+  // Correspondências em outros campos continuam válidas, mas ficam abaixo
+  // das correspondências no próprio Node quando a busca é numérica.
+  if (isNumericQuery || isNodeQuery) best = Math.min(best, 20000);
   return best;
 }
 
@@ -127,8 +119,7 @@ function App() {
       .filter(({ score }) => !normalizedQuery || score > 0)
       .sort((a, b) => {
         if (b.score !== a.score) return b.score - a.score;
-        const nodeDifference = getNodeNumber(a.item) - getNodeNumber(b.item);
-        if (nodeDifference !== 0) return nodeDifference;
+        // Mantém a ordem original dos dados quando a relevância empata.
         return a.index - b.index;
       })
       .map(({ item }) => item);

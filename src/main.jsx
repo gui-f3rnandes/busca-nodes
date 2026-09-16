@@ -176,7 +176,7 @@ function App() {
             <span className="caret">▶</span>
           </div>
         </div>
-        <div className="card-summary-row"><span>OLT: <b>{highlight(item.OLT, q)}</b></span><span>PON: <b>{highlight(item.PON, q)}</b></span><span>Clientes: <b>{highlight(item.Qtd_Clientes, q)}</b></span></div>
+        <div className="card-summary-row"><span>Cidade/POP: <b>{highlight(item.Cidade_POP,q)}</b></span><span>OLT: <b>{highlight(item.OLT,q)}</b></span><span>PON: <b>{highlight(item.PON,q)}</b></span><span>Clientes: <b>{highlight(item.Qtd_Clientes,q)}</b></span></div>
         {open === i && <div className="card-detail"><div className="grid">{fields.map(([label, key]) => { const raw = item[key]; const masked = key === 'Senha_Gerencia' && raw && !showPass; return <div className={`field ${freeTextKeys.includes(key) ? 'obs' : ''}`} key={key}><div className="lbl">{label}</div><div className={`val ${!raw ? 'empty' : ''}`}>{!raw ? 'Não informado' : masked ? '••••••••' : highlight(raw, q)}</div></div> })}</div></div>}
       </article>)}</div>
       {!filtered.length && <div className="empty-state"><div className="big">⌕</div><p>Nenhum node encontrado com esses filtros.</p></div>}{filtered.length > 500 && <div className="too-many">Exibindo os primeiros 500 resultados. Refine sua busca para encontrar um ponto específico.</div>}

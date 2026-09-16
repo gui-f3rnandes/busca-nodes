@@ -4,7 +4,11 @@
 // POST -> recebe uma nova lista de nodes e substitui a base salva no Vercel Blob,
 //         tornando-a a nova base "oficial" para todos os visitantes do site.
 //         Protegido por senha (variável de ambiente NODES_EDIT_PASSWORD).
-import {put, list} from '@vercel/blob';
+//
+// O Blob Store deste projeto está configurado como PRIVADO, então toda leitura/escrita
+// usa access:'private' e o método get() (em vez de list()+fetch(url), que só funciona
+// com stores públicas).
+import {put, get} from '@vercel/blob';
 import {createRequire} from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -16,15 +20,15 @@ const PATHNAME = 'nodes_data.json';
 export default async function handler(request, response) {
   if (request.method === 'GET') {
     try {
-      const {blobs} = await list({prefix: PATHNAME, limit: 1});
-      if (blobs.length) {
-        const fileRes = await fetch(blobs[0].url);
-        if (fileRes.ok) {
-          const data = await fileRes.json();
-          return response.status(200).json(data);
-        }
+      const result = await get(PATHNAME, {access: 'private'});
+      if (result && result.stream) {
+        const text = await new Response(result.stream).text();
+        const data = JSON.parse(text);
+        return response.status(200).json(data);
       }
     } catch (err) {
+      // Ainda não existe nada salvo no Blob (primeira vez) ou erro momentâneo:
+      // cai para a base padrão do projeto, sem quebrar a página.
       console.error('Não foi possível ler do Vercel Blob, usando base padrão do projeto:', err);
     }
     return response.status(200).json(fallbackData);
@@ -49,7 +53,7 @@ export default async function handler(request, response) {
 
     try {
       await put(PATHNAME, JSON.stringify(payload), {
-        access: 'public',
+        access: 'private',
         addRandomSuffix: false,
         allowOverwrite: true,
         contentType: 'application/json',
@@ -57,7 +61,7 @@ export default async function handler(request, response) {
       return response.status(200).json({ok: true, count: payload.length});
     } catch (err) {
       console.error('Erro ao salvar no Vercel Blob:', err);
-      return response.status(500).json({error: 'Erro ao salvar no Vercel Blob. Confira se o Blob Store está conectado ao projeto.'});
+      return response.status(500).json({error: `Erro ao salvar no Vercel Blob: ${err?.message || err}`});
     }
   }
 

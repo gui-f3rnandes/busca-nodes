@@ -1,18 +1,18 @@
 :root {
-    --bg: #0D1917;
-    --bg-grad: radial-gradient(1200px 600px at 15% -10%, #123028 0%, transparent 60%), radial-gradient(1000px 700px at 110% 10%, #1a2a3a 0%, transparent 55%), #0D1917;
-    --surface: #142523;
-    --surface-2: #1B2E2C;
-    --surface-3: #233936;
-    --border: #2A423E;
-    --border-soft: #1E332F;
-    --text: #E9F1EE;
-    --text-dim: #9FB6B0;
-    --text-faint: #6E8983;
-    --fiber-blue: #5B9BE0;
-    --fiber-blue-dim: #345979;
-    --fiber-orange: #E8964B;
-    --fiber-orange-dim: #7A5230;
+    --bg: #0A0F1C;
+    --bg-grad: radial-gradient(1200px 600px at 15% -10%, #16233F 0%, transparent 60%), radial-gradient(1000px 700px at 110% 10%, #1B2A4A 0%, transparent 55%), #0A0F1C;
+    --surface: #10182B;
+    --surface-2: #16213A;
+    --surface-3: #1E2C4A;
+    --border: #2A3B5C;
+    --border-soft: #1D2A44;
+    --text: #EAF0F8;
+    --text-dim: #9DAEC6;
+    --text-faint: #62718C;
+    --fiber-blue: #4E93E8;
+    --fiber-blue-dim: #23375C;
+    --fiber-orange: #F2812E;
+    --fiber-orange-dim: #4A311A;
     --mark: #F2C94C;
     --mark-text: #1A1408;
     --radius: 10px;
@@ -67,7 +67,7 @@ select {
     height: 6px;
     border-radius: 50%;
     background: var(--fiber-orange);
-    box-shadow: 0 0 0 3px #e8964b26
+    box-shadow: 0 0 0 3px #f2812e26
 }
 
 h1 {
@@ -254,12 +254,12 @@ h1 {
 
 .gpon .tech-dot {
     background: var(--fiber-blue);
-    box-shadow: 0 0 0 3px #5b9be02e
+    box-shadow: 0 0 0 3px #4e93e82e
 }
 
 .epon .tech-dot {
     background: var(--fiber-orange);
-    box-shadow: 0 0 0 3px #e8964b2e
+    box-shadow: 0 0 0 3px #f2812e2e
 }
 
 .bairro {
@@ -480,7 +480,7 @@ footer {
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: #000c0aa8;
+    background: #050914a8;
     display: flex;
     align-items: flex-start;
     justify-content: center;

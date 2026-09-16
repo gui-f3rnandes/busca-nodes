@@ -19423,7 +19423,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "257",
   "Bairro": "CERVEZÃO",
   "OLT": "E8PS-01-SEDE",
@@ -19441,7 +19441,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "242",
   "Bairro": "REGINA PICELLE",
   "OLT": "E8PS-01-SEDE",
@@ -19459,7 +19459,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "243",
   "Bairro": "REGINA PICELLE",
   "OLT": "E8PS-01-SEDE",
@@ -19477,7 +19477,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "34",
   "Bairro": "JD DAS FLORES / SÃO JOSÉ",
   "OLT": "E8PS-01-SEDE",
@@ -19495,7 +19495,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "246",
   "Bairro": "JD SÃO CAETANO II",
   "OLT": "E8PS-01-SEDE",
@@ -19513,7 +19513,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "362",
   "Bairro": "CONJ. RESIDENCIAL VILA VERDE",
   "OLT": "E8PS-01-SEDE",
@@ -19531,7 +19531,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "239",
   "Bairro": "VILA MARTINS",
   "OLT": "E8PS-01-SEDE",
@@ -19549,7 +19549,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "172",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-01-SEDE",
@@ -19567,7 +19567,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "258",
   "Bairro": "ARAUCARIA / CIDADE NOVA / INDAIA",
   "OLT": "E8PS-02-SEDE",
@@ -19585,7 +19585,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "292",
   "Bairro": "VILA ALEMÃ",
   "OLT": "E8PS-02-SEDE",
@@ -19603,7 +19603,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "167",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-02-SEDE",
@@ -19621,7 +19621,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "106",
   "Bairro": "VILA MARTINS",
   "OLT": "E8PS-02-SEDE",
@@ -19639,7 +19639,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "287",
   "Bairro": "SÃO CAETANO",
   "OLT": "E8PS-02-SEDE",
@@ -19657,7 +19657,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "301",
   "Bairro": "JD. FIGUEIRA II",
   "OLT": "E8PS-02-SEDE",
@@ -19675,7 +19675,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "328",
   "Bairro": "SANTA CRUZ",
   "OLT": "E8PS-02-SEDE",
@@ -19693,7 +19693,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "303",
   "Bairro": "SANTA ELIZA / VILA BNH",
   "OLT": "E8PS-02-SEDE",
@@ -19711,7 +19711,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "109",
   "Bairro": "SÃO MIGUEL",
   "OLT": "E8PS-03-SEDE",
@@ -19729,7 +19729,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "110",
   "Bairro": "SÃO MIGUEL",
   "OLT": "E8PS-03-SEDE",
@@ -19747,7 +19747,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "115",
   "Bairro": "JD BANDEIRANTE",
   "OLT": "E8PS-03-SEDE",
@@ -19765,7 +19765,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "43",
   "Bairro": "SÃO CAETANO / SÃO JOÃO",
   "OLT": "E8PS-03-SEDE",
@@ -19783,7 +19783,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "255",
   "Bairro": "CENTRO",
   "OLT": "E8PS-03-SEDE",
@@ -19801,7 +19801,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "293",
   "Bairro": "VILA ALEMÃ",
   "OLT": "E8PS-03-SEDE",
@@ -19819,7 +19819,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "81",
   "Bairro": "CONSOLAÇÃO / SAVEGNAGO",
   "OLT": "E8PS-03-SEDE",
@@ -19837,7 +19837,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "26",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-03-SEDE",
@@ -19855,7 +19855,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "327",
   "Bairro": "SANTA MARIA",
   "OLT": "E8PS-04-SEDE",
@@ -19873,7 +19873,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "63",
   "Bairro": "JD. PANORAMA",
   "OLT": "E8PS-04-SEDE",
@@ -19891,7 +19891,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "344",
   "Bairro": "CIDADE NOVA/INDAIA/BELA VISTA/SANTANA",
   "OLT": "E8PS-04-SEDE",
@@ -19909,7 +19909,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "104",
   "Bairro": "VILA MARTINS",
   "OLT": "E8PS-04-SEDE",
@@ -19927,7 +19927,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "341",
   "Bairro": "SANTANA",
   "OLT": "E8PS-04-SEDE",
@@ -19945,7 +19945,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "350",
   "Bairro": "JD PAINEIRAS",
   "OLT": "E8PS-04-SEDE",
@@ -19963,7 +19963,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "111",
   "Bairro": "SÃO MIGUEL",
   "OLT": "E8PS-04-SEDE",
@@ -19981,7 +19981,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "326",
   "Bairro": "RECANTO PARAISO",
   "OLT": "E8PS-04-SEDE",
@@ -19999,7 +19999,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "39",
   "Bairro": "RECANTO PARAISO",
   "OLT": "E8PS-05-SEDE",
@@ -20017,7 +20017,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "325",
   "Bairro": "CIDADE AZUL",
   "OLT": "E8PS-05-SEDE",
@@ -20035,7 +20035,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "178",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-05-SEDE",
@@ -20053,7 +20053,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "107",
   "Bairro": "VILA CRISTINA",
   "OLT": "E8PS-05-SEDE",
@@ -20071,7 +20071,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "119",
   "Bairro": "VILA NOVA",
   "OLT": "E8PS-05-SEDE",
@@ -20089,7 +20089,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "226",
   "Bairro": "JD PAULISTA II",
   "OLT": "E8PS-05-SEDE",
@@ -20107,7 +20107,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "307",
   "Bairro": "VILA BNH / TIJUCA",
   "OLT": "E8PS-05-SEDE",
@@ -20125,7 +20125,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "113",
   "Bairro": "SÃO MIGUEL",
   "OLT": "E8PS-05-SEDE",
@@ -20143,7 +20143,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "346",
   "Bairro": "SANTANA",
   "OLT": "E8PS-06-SEDE",
@@ -20161,7 +20161,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "247",
   "Bairro": "SÃO CAETANO II",
   "OLT": "E8PS-06-SEDE",
@@ -20179,7 +20179,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "68",
   "Bairro": "JD PAINEIRAS",
   "OLT": "E8PS-06-SEDE",
@@ -20197,7 +20197,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "345",
   "Bairro": "SANTANA",
   "OLT": "E8PS-06-SEDE",
@@ -20215,7 +20215,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "32",
   "Bairro": "JD DAS FLORES / SÃO JOSÉ",
   "OLT": "E8PS-06-SEDE",
@@ -20233,7 +20233,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "169",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-06-SEDE",
@@ -20251,7 +20251,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "376",
   "Bairro": "CHACARA LUZA",
   "OLT": "E8PS-06-SEDE",
@@ -20269,7 +20269,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "256",
   "Bairro": "CERVEZÃO",
   "OLT": "E8PS-06-SEDE",
@@ -20287,7 +20287,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "349",
   "Bairro": "JD PAINEIRAS",
   "OLT": "E8PS-07-SEDE",
@@ -20305,7 +20305,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "289",
   "Bairro": "CERVEZÃO",
   "OLT": "E8PS-07-SEDE",
@@ -20323,7 +20323,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "202",
   "Bairro": "SAIBREIRO",
   "OLT": "E8PS-07-SEDE",
@@ -20341,7 +20341,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "396",
   "Bairro": "CERVEZÃO",
   "OLT": "E8PS-07-SEDE",
@@ -20359,7 +20359,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "379",
   "Bairro": "BOSQUE DO RIO CLARO",
   "OLT": "E8PS-07-SEDE",
@@ -20377,7 +20377,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "343",
   "Bairro": "SANTANA",
   "OLT": "E8PS-07-SEDE",
@@ -20395,7 +20395,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "302",
   "Bairro": "SANTA ELIZA",
   "OLT": "E8PS-07-SEDE",
@@ -20413,7 +20413,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "375",
   "Bairro": "NOVO WENZEL / BOM RETIRO",
   "OLT": "E8PS-07-SEDE",
@@ -20431,7 +20431,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "124",
   "Bairro": "SÃO MIGUEL / PÉ NO CHÃO",
   "OLT": "E8PS-08-SEDE",
@@ -20449,7 +20449,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "40",
   "Bairro": "SÃO CAETANO / SÃO JOÃO",
   "OLT": "E8PS-08-SEDE",
@@ -20467,7 +20467,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "18",
   "Bairro": "BOA VISTA",
   "OLT": "E8PS-08-SEDE",
@@ -20485,7 +20485,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "44",
   "Bairro": "JD PROGRESSO",
   "OLT": "E8PS-08-SEDE",
@@ -20503,7 +20503,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "19",
   "Bairro": "BOA VISTA",
   "OLT": "E8PS-08-SEDE",
@@ -20521,7 +20521,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "20",
   "Bairro": "BOA VISTA",
   "OLT": "E8PS-08-SEDE",
@@ -20539,7 +20539,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "21",
   "Bairro": "BOA VISTA",
   "OLT": "E8PS-08-SEDE",
@@ -20557,7 +20557,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "269",
   "Bairro": "SANTA CRUZ",
   "OLT": "E8PS-08-SEDE",
@@ -20575,7 +20575,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "218",
   "Bairro": "BATOVI",
   "OLT": "E8PS-09-SEDE",
@@ -20593,7 +20593,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "392",
   "Bairro": "CHER",
   "OLT": "E8PS-09-SEDE",
@@ -20611,7 +20611,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "60",
   "Bairro": "SANTA ELIZA",
   "OLT": "E8PS-09-SEDE",
@@ -20629,7 +20629,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "45",
   "Bairro": "JD PROGRESSO",
   "OLT": "E8PS-09-SEDE",
@@ -20647,7 +20647,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "78 / 100",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-09-SEDE",
@@ -20665,7 +20665,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "177",
   "Bairro": "CIDADE NOVA/INDAIA/BELA VISTA",
   "OLT": "E8PS-09-SEDE",
@@ -20683,7 +20683,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "101",
   "Bairro": "JD. CIDADE AZUL",
   "OLT": "E8PS-09-SEDE",
@@ -20701,7 +20701,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "112",
   "Bairro": "SÃO MIGUEL",
   "OLT": "E8PS-09-SEDE",
@@ -20719,7 +20719,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "64",
   "Bairro": "JD. PANORAMA",
   "OLT": "E8PS-10-SEDE",
@@ -20737,7 +20737,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "240",
   "Bairro": "CERVEZÃO",
   "OLT": "E8PS-10-SEDE",
@@ -20755,7 +20755,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "146",
   "Bairro": "SANTA CLARA II",
   "OLT": "E8PS-10-SEDE",
@@ -20773,7 +20773,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "268",
   "Bairro": "JD SAO PAULO",
   "OLT": "E8PS-10-SEDE",
@@ -20791,7 +20791,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "272",
   "Bairro": "SANTA CLARA I",
   "OLT": "E8PS-10-SEDE",
@@ -20809,7 +20809,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "27",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-10-SEDE",
@@ -20827,7 +20827,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "80",
   "Bairro": "JD AZUL",
   "OLT": "E8PS-10-SEDE",
@@ -20845,7 +20845,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "66",
   "Bairro": "JD PAINEIRAS",
   "OLT": "E8PS-10-SEDE",
@@ -20863,7 +20863,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "295",
   "Bairro": "JD. IPÊ",
   "OLT": "E8PS-11-SEDE",
@@ -20881,7 +20881,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "296",
   "Bairro": "VILA ALEMÃ",
   "OLT": "E8PS-11-SEDE",
@@ -20899,7 +20899,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "53",
   "Bairro": "JD FIGUEIRA",
   "OLT": "E8PS-11-SEDE",
@@ -20917,7 +20917,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "366",
   "Bairro": "JD HIPODROMO",
   "OLT": "E8PS-11-SEDE",
@@ -20935,7 +20935,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "365",
   "Bairro": "JD HIPODROMO",
   "OLT": "E8PS-11-SEDE",
@@ -20953,7 +20953,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "160",
   "Bairro": "OFFICE TOWER/ENXUTO",
   "OLT": "E8PS-11-SEDE",
@@ -20971,7 +20971,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "306",
   "Bairro": "VILA BNH",
   "OLT": "E8PS-11-SEDE",
@@ -20989,7 +20989,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "294",
   "Bairro": "VILA ALEMA",
   "OLT": "E8PS-11-SEDE",
@@ -21007,7 +21007,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "248",
   "Bairro": "CENTRO",
   "OLT": "E8PS-12-SEDE",
@@ -21025,7 +21025,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "59",
   "Bairro": "SANTA ELIZA",
   "OLT": "E8PS-12-SEDE",
@@ -21043,7 +21043,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "30",
   "Bairro": "JD DAS FLORES / SÃO JOSÉ",
   "OLT": "E8PS-12-SEDE",
@@ -21061,7 +21061,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "37",
   "Bairro": "BOSQUE DO RIO CLARO",
   "OLT": "E8PS-12-SEDE",
@@ -21079,7 +21079,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "108",
   "Bairro": "SÃO MIGUEL",
   "OLT": "E8PS-12-SEDE",
@@ -21097,7 +21097,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "363",
   "Bairro": "JD PAULISTA II",
   "OLT": "E8PS-12-SEDE",
@@ -21115,7 +21115,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "259",
   "Bairro": "RECANTO PARAISO",
   "OLT": "E8PS-12-SEDE",
@@ -21133,7 +21133,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "74",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-12-SEDE",
@@ -21151,7 +21151,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "353",
   "Bairro": "JD NOVO WENZEL II",
   "OLT": "E8PS-13-SEDE",
@@ -21169,7 +21169,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "354",
   "Bairro": "JD NOVO WENZEL II",
   "OLT": "E8PS-13-SEDE",
@@ -21187,7 +21187,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "147",
   "Bairro": "NOVO WENZEL",
   "OLT": "E8PS-13-SEDE",
@@ -21205,7 +21205,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "148",
   "Bairro": "NOVO WENZEL",
   "OLT": "E8PS-13-SEDE",
@@ -21223,7 +21223,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "149",
   "Bairro": "NOVO WENZEL",
   "OLT": "E8PS-13-SEDE",
@@ -21241,7 +21241,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "150",
   "Bairro": "NOVO WENZEL",
   "OLT": "E8PS-13-SEDE",
@@ -21259,7 +21259,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "244",
   "Bairro": "REGINA PICELLE",
   "OLT": "E8PS-13-SEDE",
@@ -21277,7 +21277,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "164",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-13-SEDE",
@@ -21295,7 +21295,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "155",
   "Bairro": "BOM RETIRO",
   "OLT": "E8PS-14-SEDE",
@@ -21313,7 +21313,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "156",
   "Bairro": "BOM RETIRO",
   "OLT": "E8PS-14-SEDE",
@@ -21331,7 +21331,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "157",
   "Bairro": "BOM RETIRO",
   "OLT": "E8PS-14-SEDE",
@@ -21349,7 +21349,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "158",
   "Bairro": "BOM RETIRO",
   "OLT": "E8PS-14-SEDE",
@@ -21367,7 +21367,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "151",
   "Bairro": "NOVO WENZEL",
   "OLT": "E8PS-14-SEDE",
@@ -21385,7 +21385,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "152",
   "Bairro": "BOM SUCESSO",
   "OLT": "E8PS-14-SEDE",
@@ -21403,7 +21403,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "153",
   "Bairro": "BOM SUCESSO",
   "OLT": "E8PS-14-SEDE",
@@ -21421,7 +21421,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "154",
   "Bairro": "BOM SUCESSO",
   "OLT": "E8PS-14-SEDE",
@@ -21439,7 +21439,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "79",
   "Bairro": "BOSQUE DO RIO CLARO",
   "OLT": "E8PS-15-SEDE",
@@ -21457,7 +21457,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "145",
   "Bairro": "RECANTO PARAISO",
   "OLT": "E8PS-15-SEDE",
@@ -21475,7 +21475,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "364",
   "Bairro": "CERVEZÃO II",
   "OLT": "E8PS-15-SEDE",
@@ -21493,7 +21493,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "378",
   "Bairro": "JD ARAUCARIA",
   "OLT": "E8PS-15-SEDE",
@@ -21511,7 +21511,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "135",
   "Bairro": "JD KARAM-JD PORTUGAL",
   "OLT": "E8PS-15-SEDE",
@@ -21529,7 +21529,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "305",
   "Bairro": "VILA BNH",
   "OLT": "E8PS-15-SEDE",
@@ -21547,7 +21547,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "73",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-15-SEDE",
@@ -21565,7 +21565,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "118",
   "Bairro": "VILA NOVA",
   "OLT": "E8PS-15-SEDE",
@@ -21583,7 +21583,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "31",
   "Bairro": "JD DAS FLORES",
   "OLT": "E8PS-16-SEDE",
@@ -21601,7 +21601,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "162",
   "Bairro": "ESTÁDIO / SAÚDE",
   "OLT": "E8PS-16-SEDE",
@@ -21619,7 +21619,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "383",
   "Bairro": "VILA MARTINS",
   "OLT": "E8PS-16-SEDE",
@@ -21637,7 +21637,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "29",
   "Bairro": "SANTA MARIA",
   "OLT": "E8PS-16-SEDE",
@@ -21655,7 +21655,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "91",
   "Bairro": "PORTO FINO",
   "OLT": "E8PS-16-SEDE",
@@ -21673,7 +21673,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "25",
   "Bairro": "RECANTO PARAISO",
   "OLT": "E8PS-16-SEDE",
@@ -21691,7 +21691,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "200",
   "Bairro": "COND. MANACAS / COND. LEBLON",
   "OLT": "E8PS-16-SEDE",
@@ -21709,7 +21709,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "AV BRASIL",
   "Bairro": "DISTRITO INDUSTRIAL / COND.  POTY",
   "OLT": "E8PS-16-SEDE",
@@ -21727,7 +21727,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "165",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-17-SEDE",
@@ -21745,7 +21745,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "16",
   "Bairro": "RECANTO PARAISO",
   "OLT": "E8PS-17-SEDE",
@@ -21763,7 +21763,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "170",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-17-SEDE",
@@ -21781,7 +21781,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "374",
   "Bairro": "NOVO WENZEL / BOM RETIRO",
   "OLT": "E8PS-17-SEDE",
@@ -21799,7 +21799,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "180",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-17-SEDE",
@@ -21817,7 +21817,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "76",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-17-SEDE",
@@ -21835,7 +21835,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "COND BIANCA > 1172",
   "Bairro": "JARDIM ITAPUÃ",
   "OLT": "E8PS-17-SEDE",
@@ -21853,7 +21853,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "217",
   "Bairro": "COND. DOM BOSCO/BATOVI",
   "OLT": "E8PS-17-SEDE",
@@ -21871,7 +21871,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "235",
   "Bairro": "RECREIO DAS AGUAS CLARAS",
   "OLT": "E8PS-18-SEDE",
@@ -21889,7 +21889,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "322",
   "Bairro": "VILA INDUSTRIAL",
   "OLT": "E8PS-18-SEDE",
@@ -21907,7 +21907,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "323",
   "Bairro": "VILA INDUSTRIAL",
   "OLT": "E8PS-18-SEDE",
@@ -21925,7 +21925,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "75",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-18-SEDE",
@@ -21943,7 +21943,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "168",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-18-SEDE",
@@ -21961,7 +21961,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "201",
   "Bairro": "JD AMERICA",
   "OLT": "E8PS-18-SEDE",
@@ -21979,7 +21979,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "288",
   "Bairro": "SÃO JOÃO",
   "OLT": "E8PS-18-SEDE",
@@ -21997,7 +21997,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "173",
   "Bairro": "MÃE PRETA",
   "OLT": "E8PS-18-SEDE",
@@ -22015,7 +22015,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "67",
   "Bairro": "JD. DAS PAINEIRAS",
   "OLT": "E8PS-19-SEDE",
@@ -22033,7 +22033,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "125",
   "Bairro": "SÃO MIGUEL / PÉ NO CHÃO",
   "OLT": "E8PS-19-SEDE",
@@ -22051,7 +22051,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "71",
   "Bairro": "ARAUCARIA",
   "OLT": "E8PS-19-SEDE",
@@ -22069,7 +22069,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "54",
   "Bairro": "JD FIGUEIRA",
   "OLT": "E8PS-19-SEDE",
@@ -22087,7 +22087,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "105",
   "Bairro": "VILA MARTINS",
   "OLT": "E8PS-19-SEDE",
@@ -22105,7 +22105,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "62",
   "Bairro": "JD. PANORAMA",
   "OLT": "E8PS-19-SEDE",
@@ -22123,7 +22123,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "12",
   "Bairro": "CERVEZÃO",
   "OLT": "E8PS-19-SEDE",
@@ -22141,7 +22141,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "70",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-19-SEDE",
@@ -22159,7 +22159,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "174",
   "Bairro": "PQ UNIVERSITARIO",
   "OLT": "E8PS-20-SEDE",
@@ -22177,7 +22177,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "348",
   "Bairro": "CIDADE NOVA",
   "OLT": "E8PS-20-SEDE",
@@ -22195,7 +22195,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "52",
   "Bairro": "JD PROGRESSO II",
   "OLT": "E8PS-20-SEDE",
@@ -22213,7 +22213,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "33",
   "Bairro": "SANTA MARIA",
   "OLT": "E8PS-20-SEDE",
@@ -22231,7 +22231,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "15",
   "Bairro": "JD PAULISTA II",
   "OLT": "E8PS-20-SEDE",
@@ -22249,7 +22249,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "86",
   "Bairro": "ARAUCARIA",
   "OLT": "E8PS-20-SEDE",
@@ -22267,7 +22267,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "69",
   "Bairro": "JD PAINEIRAS",
   "OLT": "E8PS-20-SEDE",
@@ -22285,7 +22285,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "384",
   "Bairro": "JD. AZUL",
   "OLT": "E8PS-20-SEDE",
@@ -22303,7 +22303,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "23",
   "Bairro": "BOA VISTA",
   "OLT": "OLT-SA-25-SEDE",
@@ -22321,7 +22321,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "17",
   "Bairro": "BOA VISTA",
   "OLT": "OLT-SA-25-SEDE",
@@ -22339,7 +22339,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "LAB. NOC",
   "Bairro": "PORTA DE TESTES INTERNO",
   "OLT": "OLT-SA-32-SEDE",
@@ -22357,7 +22357,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "14",
   "Bairro": "JARDIM PAULISTA 2",
   "OLT": "OLT-SA-32-SEDE",
@@ -22375,7 +22375,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "120",
   "Bairro": "VILA ALEMÃ",
   "OLT": "OLT-SA-35-SEDE",
@@ -22393,7 +22393,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "329",
   "Bairro": "NOVA RIO CLARO",
   "OLT": "OLT-SA-35-SEDE",
@@ -22411,7 +22411,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "58",
   "Bairro": "SANTA ELIZA",
   "OLT": "OLT-SA-45-SEDE",
@@ -22429,7 +22429,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "122",
   "Bairro": "VILA NOVA",
   "OLT": "OLT-SA-45-SEDE",
@@ -22447,7 +22447,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "JACUTINGA",
   "Bairro": "-",
   "OLT": "OLT-SA-46-SEDE",
@@ -22465,7 +22465,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "ARAU 02",
   "Bairro": "ARAUCARIA",
   "OLT": "OLT-SA-46-SEDE",
@@ -22483,7 +22483,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "57",
   "Bairro": "SANTA ELIZA",
   "OLT": "OLT-SA-47-SEDE",
@@ -22501,7 +22501,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "3",
   "Bairro": "JD INDEPENDENCIA",
   "OLT": "OLT-SA-47-SEDE",
@@ -22519,7 +22519,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "61",
   "Bairro": "JD. PANORAMA",
   "OLT": "OLT-SA-48-SEDE",
@@ -22537,7 +22537,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "OLT-SA-48-SEDE",
@@ -22555,7 +22555,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "E8PS-01-SGD",
@@ -22573,7 +22573,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "E8PS-01-SGD",
@@ -22591,7 +22591,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "E8PS-01-SGD",
@@ -22609,7 +22609,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "E8PS-01-SGD",
@@ -22627,7 +22627,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "E8PS-01-SGD",
@@ -22645,7 +22645,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "313",
   "Bairro": "VILA PAULISTA",
   "OLT": "E8PS-01-SGD",
@@ -22663,7 +22663,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "314",
   "Bairro": "VILA PAULISTA",
   "OLT": "E8PS-01-SGD",
@@ -22681,7 +22681,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "315",
   "Bairro": "VILA PAULISTA",
   "OLT": "E8PS-01-SGD",
@@ -22699,7 +22699,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "?",
   "Bairro": "COND. VILA DO HORTO",
   "OLT": "E8PS-02-SGD",
@@ -22717,7 +22717,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "3",
   "Bairro": "COND. VILA DO HORTO - TORRE 3",
   "OLT": "E8PS-02-SGD",
@@ -22735,7 +22735,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "2",
   "Bairro": "COND. VILA DO HORTO - TORRE 1",
   "OLT": "E8PS-02-SGD",
@@ -22753,7 +22753,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "21",
   "Bairro": "COND. VILA DO HORTO",
   "OLT": "E8PS-02-SGD",
@@ -22771,7 +22771,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "20",
   "Bairro": "COND. VILA DO HORTO",
   "OLT": "E8PS-02-SGD",
@@ -22789,7 +22789,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "17",
   "Bairro": "COND. VILA DO HORTO",
   "OLT": "E8PS-02-SGD",
@@ -22807,7 +22807,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "MIGRADO",
   "Bairro": "MIGRADO",
   "OLT": "E8PS-02-SGD",
@@ -22825,7 +22825,7 @@
  },
  {
   "Tecnologia": "EPON",
-  "Cidade_POP": "RIO CLARO / AJAPI / SANTA GERTRUDES (SP) — regional EPON",
+  "Cidade_POP": "RIO CLARO/AJAPI/SANTA GERTRUDES (SP) - EPON",
   "Node": "19",
   "Bairro": "COND. VILA DO HORTO -  TORRE 12",
   "OLT": "E8PS-02-SGD",
@@ -23819,8 +23819,8 @@
   "Node": "95",
   "Bairro": "RECANDO VILLE",
   "OLT": "OLT-StandAlone-01",
-  "PON": "2003",
-  "VLAN": "",
+  "PON": "1",
+  "VLAN": "2003",
   "Qtd_Clientes": "",
   "DSW_Uplink": "",
   "DIO": "",

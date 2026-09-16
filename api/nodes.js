@@ -57,7 +57,7 @@ export default async function handler(request, response) {
       return response.status(200).json({ok: true, count: payload.length});
     } catch (err) {
       console.error('Erro ao salvar no Vercel Blob:', err);
-      return response.status(500).json({error: 'Erro ao salvar no Vercel Blob. Confira se o Blob Store está conectado ao projeto.'});
+return response.status(500).json({error: `Erro ao salvar no Vercel Blob: ${err?.message || err}`});
     }
   }
 

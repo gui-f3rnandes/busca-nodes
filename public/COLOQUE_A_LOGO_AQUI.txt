@@ -1,4 +1,0 @@
-Coloque aqui o arquivo da logo, salvo como: logo.png
-(fundo transparente, tamanho sugerido: 600-800px de largura)
-
-Depois de colocar o arquivo certo, pode apagar este .txt — ele é só um lembrete.

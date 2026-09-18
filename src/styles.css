@@ -84,8 +84,7 @@ h1 {
 }
 
 .searchbar {
-    position: relative;
-    margin-top: 22px
+    position: relative
 }
 
 .searchbar input {
@@ -460,6 +459,61 @@ footer {
     border-color: #a3823f
 }
 
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-soft)
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    gap: 8px;
+    overflow-x: auto;
+    flex: 1;
+    scrollbar-width: thin
+}
+
+.navbar-actions::-webkit-scrollbar {
+    height: 4px
+}
+
+.navbar-actions::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px
+}
+
+.navbar-actions .chip {
+    white-space: nowrap;
+    flex-shrink: 0
+}
+
+.sticky-search {
+    position: sticky;
+    top: 56px;
+    z-index: 50;
+    background: var(--bg);
+    margin: 0 -20px;
+    padding: 20px 20px 14px
+}
+
 .edit-btn {
     background: none;
     border: 1px solid var(--border);
@@ -648,35 +702,13 @@ footer {
     .compare-form {
         max-height: none
     }
-}
 
-.top-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px
-}
-
-.top-copy {
-    flex: 1;
-    min-width: 0
-}
-
-.brand-logo {
-    height: 65px;
-    width: auto;
-    flex-shrink: 0;
-    object-fit: contain
-}
-
-@media(max-width:560px) {
-    .top-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px
+    .navbar {
+        padding: 0 14px
     }
 
-    .brand-logo {
-        height: 34px
+    .sticky-search {
+        margin: 0 -14px;
+        padding: 16px 14px 12px
     }
 }

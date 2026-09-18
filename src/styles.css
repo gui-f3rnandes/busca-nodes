@@ -473,7 +473,7 @@ footer {
 }
 
 .navbar-logo {
-    height: 28px;
+    height: 35px;
     width: auto;
     flex-shrink: 0;
     object-fit: contain
@@ -482,6 +482,7 @@ footer {
 .navbar-actions {
     display: flex;
     align-items: center;
+    justify-content:flex-end;
     gap: 8px;
     overflow-x: auto;
     flex: 1;

@@ -473,6 +473,8 @@ footer {
 }
 
 .navbar-logo {
+    display: flex;
+    align-items: center;
     height: 50px;
     width: auto;
     flex-shrink: 0;

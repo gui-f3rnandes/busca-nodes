@@ -59,6 +59,12 @@ de ambiente, o `middleware.js` e a nova função `/api/nodes` entrem em vigor.
    (inclusive sobrevive a novos deploys do site).
 4. Se importar algo por engano, use **"Descartar alterações"** para recarregar a
    base publicada atualmente, sem precisar dar refresh na página.
+5. Se duas pessoas publicarem quase ao mesmo tempo, quem publicar por último vê um aviso
+   de conflito em vez de sobrescrever silenciosamente — é só clicar em "Descartar
+   alterações" pra pegar a versão mais nova e refazer a edição por cima dela.
+6. O botão **"🕘 Histórico"**, na navbar, lista as últimas 15 publicações (com data/hora)
+   e permite restaurar qualquer uma delas — o estado atual é preservado no histórico antes
+   de restaurar, então nada se perde.
 
 ## Observação sobre segurança
 Com o login do item A) ativo, ninguém de fora consegue nem carregar a página sem

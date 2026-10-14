@@ -62,20 +62,22 @@ async function snapshotCurrentLive(current) {
 }
 
 function findDuplicateNodes(nodes) {
-  // Node se repete de propósito entre cidades/POPs diferentes (a numeração é mais ou
-  // menos independente por cidade) — só conta como duplicado quando o MESMO node
-  // aparece de novo na MESMA cidade/POP.
+  // Um mesmo node pode existir em VLANs diferentes. Ele só é duplicado quando a
+  // combinação de node e VLAN se repete.
   const seen = new Map();
   for (const item of nodes) {
     const node = String(item?.Node ?? '').trim().toLowerCase();
-    if (!node) continue;
-    const cidade = String(item?.Cidade_POP ?? '').trim().toLowerCase();
-    const key = `${node}|${cidade}`;
-    seen.set(key, (seen.get(key) || 0) + 1);
+    // "-" representa um node ainda não identificado; ele não deve bloquear outros registros.
+    if (!node || node === '-') continue;
+    const vlan = String(item?.VLAN ?? '').trim().toLowerCase();
+    const key = `${node}\u0000${vlan}`;
+    const entry = seen.get(key) || {node, vlan, count: 0};
+    entry.count += 1;
+    seen.set(key, entry);
   }
-  return [...seen.entries()]
-    .filter(([, count]) => count > 1)
-    .map(([key]) => { const [node, cidade] = key.split('|'); return cidade ? `${node} (${cidade})` : node; });
+  return [...seen.values()]
+    .filter(({count}) => count > 1)
+    .map(({node, vlan}) => vlan ? `${node} (VLAN ${vlan})` : `${node} (VLAN não informada)`);
 }
 
 export default async function handler(request, response) {

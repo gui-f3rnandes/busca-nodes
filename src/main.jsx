@@ -179,15 +179,15 @@ function App(){
    if(!editing) return;
    const node=(editing.draft.Node||'').trim();
    if(!node){ flashMsg('error','Preencha ao menos o campo "Node" antes de salvar.'); return; }
-   const cidade=(editing.draft.Cidade_POP||'').trim();
+   const vlan=(editing.draft.VLAN||'').trim();
    const nodeKey=node.toLowerCase();
-   const cidadeKey=cidade.toLowerCase();
-   // Node se repete de propósito entre cidades/POPs diferentes — só é duplicado de
-   // verdade quando o MESMO node aparece de novo na MESMA cidade/POP.
-   const duplicate=data.some((it,i)=>i!==editing.index
+   const vlanKey=vlan.toLowerCase();
+   // Um mesmo node pode existir em VLANs diferentes. Só há duplicidade quando a
+   // combinação de node e VLAN se repete.
+   const duplicate=nodeKey!=='-'&&data.some((it,i)=>i!==editing.index
      &&String(it.Node||'').trim().toLowerCase()===nodeKey
-     &&String(it.Cidade_POP||'').trim().toLowerCase()===cidadeKey);
-   if(duplicate){ flashMsg('error',`Já existe um node "${node}" nessa mesma cidade/POP${cidade?` (${cidade})`:''}. Escolha um nome diferente ou confira se a cidade/POP está certa.`); return; }
+     &&String(it.VLAN||'').trim().toLowerCase()===vlanKey);
+   if(duplicate){ flashMsg('error',`Já existe um node "${node}" nessa mesma VLAN${vlan?` (${vlan})`:' não informada'}. Escolha um nome diferente ou confira se a VLAN está certa.`); return; }
    const clean={...editing.draft,Node:node};
    if(editing.index===null||editing.index<0){
      setData(prev=>[...prev,clean]);

@@ -12,6 +12,19 @@ const normalize=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
 const exactFields=['VLAN','PON','OLT','Cidade_POP','Bairro','Equipamento','IP_Gerencia'];
 const copyableFields=['DIO','IP_Gerencia','Usuario_Gerencia','Senha_Gerencia'];
 const freeTextKeys=['Observacao','Info_Gerencia'];
+const DESCRIPTION_MAX=300;
+// Campos (e rótulos) que entram no botão "Copiar tudo" do card. Campos vazios são omitidos.
+const copySummaryFields=[['Node','Node'],['Bairro','Bairro'],['VLAN','VLAN'],['OLT','OLT'],['Porta','PON'],['DIO','DIO']];
+// Na cópia, a porta vai só com o número final ("1/1/3" -> "3").
+function portNumber(pon){ return String(pon).split('/').pop().trim(); }
+// Tudo numa linha só, cada campo separado por espaços.
+function buildCopyText(item){
+  return copySummaryFields
+    .map(([label,key])=>[label,key==='PON'?portNumber(item[key]??''):String(item[key]??'').trim()])
+    .filter(([,v])=>v)
+    .map(([label,v])=>`${label}: ${v}`)
+    .join('   ');
+}
 
 function matchScore(item,q){
   const nq=normalize(q); if(!nq) return 99;
@@ -45,6 +58,8 @@ function App(){
  const [copiedKey,setCopiedKey]=useState(null); // qual campo mostrou "Copiado!" por último
  const [history,setHistory]=useState(null); // lista do histórico de publicações, quando o painel está aberto
  const [historyLoading,setHistoryLoading]=useState(false);
+ const [publishing,setPublishing]=useState(null); // janela "Salvar para todos": {description, password, error} ou null
+ const [showPublishPass,setShowPublishPass]=useState(false);
  const fileInputRef=useRef(null);
 
  function loadFromServer(){
@@ -116,19 +131,28 @@ function App(){
      .catch(()=>flashMsg('error','Não foi possível recarregar do servidor agora.'));
  }
 
- function handlePublish(){
-   const password=window.prompt('Senha para publicar esta base para todos os visitantes do site:');
-   if(password===null) return; // cancelou
+ // "Salvar para todos": abre uma janela pedindo uma breve descrição das alterações (que vai
+ // para o histórico) e a senha. Se der erro (senha errada, conflito...), a janela continua
+ // aberta com a mensagem, sem perder o que foi digitado.
+ function handlePublish(){ setShowPublishPass(false); setPublishing({description:'',password:'',error:''}); }
+ function closePublish(){ if(!saving) setPublishing(null); }
+ function updatePublishField(key,value){ setPublishing(p=>p&&({...p,[key]:value,error:''})); }
+ function confirmPublish(){
+   if(!publishing||saving) return;
+   const description=publishing.description.trim();
+   if(!description){ setPublishing(p=>p&&({...p,error:'Descreva brevemente o que foi alterado antes de publicar.'})); return; }
+   if(!publishing.password){ setPublishing(p=>p&&({...p,error:'Informe a senha para publicar.'})); return; }
    setSaving(true);
-   fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','X-Edit-Password':password},body:JSON.stringify({action:'publish',nodes:data,baseVersion:serverVersion})})
+   fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','X-Edit-Password':publishing.password},body:JSON.stringify({action:'publish',nodes:data,baseVersion:serverVersion,description})})
      .then(async r=>{
        const body=await r.json().catch(()=>({}));
        if(!r.ok) throw new Error(body.error||`erro ${r.status}`);
        setDirty(false);
        setServerVersion(body.version??null);
+       setPublishing(null);
        flashMsg('ok',`Publicado! Todos os visitantes já veem esta base (${body.count?.toLocaleString('pt-BR')} nodes).`);
      })
-     .catch(err=>flashMsg('error',`Falha ao publicar: ${err.message}`))
+     .catch(err=>setPublishing(p=>p&&({...p,error:`Falha ao publicar: ${err.message}`})))
      .finally(()=>setSaving(false));
  }
 
@@ -227,10 +251,11 @@ function App(){
   <div className="meta-row"><span>{data.length.toLocaleString('pt-BR')} nodes carregados</span><span className="count">{filtered.length.toLocaleString('pt-BR')} resultado(s)</span></div>
   <div className="results">{filtered.slice(0,500).map((item,i)=><article key={`${item.Node}-${i}`} className={`card ${(item.Tecnologia||'').toLowerCase()} ${open===i?'open':''}`}>
     <div className="card-head" role="button" tabIndex={0} onClick={()=>setOpen(open===i?null:i)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setOpen(open===i?null:i)}}}>
-      <div className="card-id"><div className="node"><span className="tech-dot"/>NODE {highlight(item.Node,q)}</div><div className="bairro">{highlight(item.Bairro,q)}</div></div>
+      <div className="card-id"><div className="node"><span className="tech-dot"/>NODE {highlight(item.Node,q)}</div><div className="bairro-row"><div className="bairro">{highlight(item.Bairro,q)}</div>{item.Bairro&&<button type="button" className={`copy-btn sm ${copiedKey===`${i}-bairro`?'done':''}`} onClick={e=>{e.stopPropagation();copyField(`${i}-bairro`,item.Bairro)}} onKeyDown={e=>e.stopPropagation()} title="Copiar bairro">{copiedKey===`${i}-bairro`?'✓':'⧉'}</button>}</div></div>
       <div className="card-right">
         <span className={`badge ${(item.Tecnologia||'').toLowerCase()}`}>{item.Tecnologia}</span>
         <span className="vlan-tag">VLAN {highlight(item.VLAN,q)}</span>
+        <button type="button" className={`copy-btn copy-all ${copiedKey===`${i}-all`?'done':''}`} onClick={e=>{e.stopPropagation();copyField(`${i}-all`,buildCopyText(item))}} onKeyDown={e=>e.stopPropagation()} title="Copiar node, bairro, VLAN, OLT, porta e DIO"><span>{copiedKey===`${i}-all`?'✓':'⧉'}</span><span className="copy-txt">{copiedKey===`${i}-all`?'Copiado':'Copiar tudo'}</span></button>
         <button className="edit-btn" onClick={e=>{e.stopPropagation();openEditForm(item)}} title="Editar este node">✎</button>
         <span className="caret">▶</span>
       </div>
@@ -271,6 +296,25 @@ function App(){
      </div>
    </div>
  </div>}
+ {publishing&&<div className="modal-backdrop" onClick={closePublish}>
+   <div className="modal modal-narrow" onClick={e=>e.stopPropagation()}>
+     <div className="modal-head">
+       <h2>Salvar para todos</h2>
+       <button className="modal-close" onClick={closePublish} aria-label="Fechar">×</button>
+     </div>
+     <p className="publish-note">Isto torna a base atual a versão oficial do site, visível para todos. Descreva brevemente o que mudou — esse texto aparece no histórico.</p>
+     <div className="publish-form">
+       <label className="form-field"><span>O que foi alterado? *</span><textarea rows={3} autoFocus maxLength={DESCRIPTION_MAX} value={publishing.description} onChange={e=>updatePublishField('description',e.target.value)} placeholder="ex.: Adicionado node 1045 (Panorama); corrigida a VLAN do node 93 / 27"/></label>
+       <div className="char-count">{publishing.description.length}/{DESCRIPTION_MAX}</div>
+       <label className="form-field"><span>Senha para publicar *</span><div className="pass-input"><input type={showPublishPass?'text':'password'} value={publishing.password} onChange={e=>updatePublishField('password',e.target.value)} onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();confirmPublish()}}} autoComplete="off"/><button type="button" onClick={()=>setShowPublishPass(v=>!v)}>{showPublishPass?'ocultar':'mostrar'}</button></div></label>
+       {publishing.error&&<div className="io-msg error">{publishing.error}</div>}
+     </div>
+     <div className="modal-actions">
+       <button className="chip" onClick={closePublish} disabled={saving}>Cancelar</button>
+       <button className="chip io publish" onClick={confirmPublish} disabled={saving}>{saving?'Publicando…':'Publicar'}</button>
+     </div>
+   </div>
+ </div>}
  {history&&<div className="modal-backdrop" onClick={closeHistory}>
    <div className="modal modal-narrow" onClick={e=>e.stopPropagation()}>
      <div className="modal-head">
@@ -278,8 +322,14 @@ function App(){
        <button className="modal-close" onClick={closeHistory} aria-label="Fechar">×</button>
      </div>
      {historyLoading&&<div className="compare-empty">Carregando…</div>}
-     {!historyLoading&&!history.length&&<div className="compare-empty">Ainda não há publicações anteriores registradas.</div>}
-     {!historyLoading&&history.length>0&&<div className="history-list">{history.map(h=><div className="history-row" key={h.id}><span>{formatHistoryDate(h.uploadedAt)}</span><button className="chip io" onClick={()=>restoreHistory(h.id)}>Restaurar esta versão</button></div>)}</div>}
+     {!historyLoading&&!history.length&&<div className="compare-empty">Ainda não há publicações registradas.</div>}
+     {!historyLoading&&history.length>0&&<div className="history-list">{history.map(h=><div className="history-row" key={h.version||h.id}>
+       <div className="history-info">
+         <div className="history-date">{formatHistoryDate(h.publishedAt||h.uploadedAt)}{h.current&&<span className="badge-current">Versão atual</span>}</div>
+         <div className={`history-desc ${h.description?'':'empty'}`}>{h.description||'Sem descrição'}</div>
+       </div>
+       {!h.current&&<button className="chip io" onClick={()=>restoreHistory(h.id)}>Restaurar esta versão</button>}
+     </div>)}</div>}
    </div>
  </div>}
  </>

@@ -1,8 +1,10 @@
 // Função serverless (Vercel) que serve como "banco de dados" compartilhado da aplicação.
 //
 // GET  /api/nodes            -> { nodes, version } — base atual e um identificador de versão.
-// GET  /api/nodes?history=1  -> { history: [{id, uploadedAt}, ...] } — publicações recentes.
-// POST /api/nodes  { action:'publish', nodes, baseVersion } -> publica uma nova base.
+// GET  /api/nodes?history=1  -> { history: [{id, version, publishedAt, description, current?}, ...] }
+//      — a versão atual (current:true) seguida das publicações anteriores, da mais nova à mais antiga.
+// POST /api/nodes  { action:'publish', nodes, baseVersion, description } -> publica uma nova base.
+//      "description" (obrigatória) é um resumo curto das alterações; aparece no histórico.
 //      Se baseVersion não bater com a versão atual do servidor (alguém publicou antes de
 //      você), devolve 409 em vez de sobrescrever silenciosamente.
 // POST /api/nodes  { action:'restore', id } -> restaura uma versão antiga do histórico.
@@ -20,6 +22,11 @@ const fallbackData = require('../src/nodes_data.json');
 const LIVE_PATHNAME = 'nodes_data.json';
 const HISTORY_PREFIX = 'history/';
 const HISTORY_KEEP = 15; // quantas publicações antigas manter
+// Índice {versão: descrição} das publicações, para o histórico listar as descrições sem precisar
+// abrir cada snapshot (cada um tem a base inteira). A descrição também fica dentro do próprio
+// snapshot, então o índice é só um atalho — se ele falhar, nenhuma publicação é perdida.
+const META_PATHNAME = 'history_meta.json';
+const DESCRIPTION_MAX = 300;
 
 async function readLive() {
   try {
@@ -34,9 +41,9 @@ async function readLive() {
   return null;
 }
 
-async function writeLive(nodes) {
+async function writeLive(nodes, description) {
   const version = String(Date.now());
-  await put(LIVE_PATHNAME, JSON.stringify({version, nodes}), {
+  await put(LIVE_PATHNAME, JSON.stringify({version, description, nodes}), {
     access: 'private',
     addRandomSuffix: false,
     allowOverwrite: true,
@@ -45,8 +52,9 @@ async function writeLive(nodes) {
   return version;
 }
 
+// Devolve a lista de versões que continuam no histórico (ou null se não havia o que arquivar).
 async function snapshotCurrentLive(current) {
-  if (!current) return; // nada publicado ainda, não tem o que arquivar
+  if (!current) return null; // nada publicado ainda, não tem o que arquivar
   const id = `${HISTORY_PREFIX}${current.version || Date.now()}.json`;
   await put(id, JSON.stringify(current), {
     access: 'private',
@@ -59,6 +67,57 @@ async function snapshotCurrentLive(current) {
   const sorted = blobs.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
   const toDelete = sorted.slice(HISTORY_KEEP);
   await Promise.all(toDelete.map(b => del(b.url).catch(() => {})));
+  return sorted.slice(0, HISTORY_KEEP).map(b => versionFromPathname(b.pathname));
+}
+
+// A versão é o próprio Date.now() do momento da publicação (ver writeLive), então dá pra
+// descobrir a data de publicação a partir dela.
+function versionFromPathname(pathname) {
+  return String(pathname).slice(HISTORY_PREFIX.length).replace(/\.json$/, '');
+}
+
+function toIso(value) {
+  const d = value instanceof Date ? value : new Date(value);
+  return isNaN(d) ? null : d.toISOString();
+}
+
+function versionToIso(version, fallback) {
+  const n = Number(version);
+  return (Number.isFinite(n) && n > 0 ? toIso(n) : null) || fallback || null;
+}
+
+async function readMeta() {
+  try {
+    const result = await get(META_PATHNAME, {access: 'private'});
+    if (result && result.stream) {
+      const parsed = JSON.parse(await new Response(result.stream).text());
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) return parsed;
+    }
+  } catch (err) {
+    // Ainda não existe índice — normal até a primeira publicação com descrição.
+  }
+  return {};
+}
+
+// Registra a descrição da nova versão e poda entradas de versões que saíram do histórico.
+// Falhar aqui não pode derrubar a publicação (a descrição já está salva dentro da base).
+async function recordDescription(version, description, keptVersions) {
+  try {
+    const meta = await readMeta();
+    meta[version] = description;
+    if (Array.isArray(keptVersions)) {
+      const keep = new Set([...keptVersions, version]);
+      for (const key of Object.keys(meta)) if (!keep.has(key)) delete meta[key];
+    }
+    await put(META_PATHNAME, JSON.stringify(meta), {
+      access: 'private',
+      addRandomSuffix: false,
+      allowOverwrite: true,
+      contentType: 'application/json',
+    });
+  } catch (err) {
+    console.error('Erro ao atualizar índice de descrições do histórico:', err);
+  }
 }
 
 function findDuplicateNodes(nodes) {
@@ -84,10 +143,33 @@ export default async function handler(request, response) {
   if (request.method === 'GET') {
     if (request.query?.history) {
       try {
-        const {blobs} = await list({prefix: HISTORY_PREFIX, limit: HISTORY_KEEP});
+        const [{blobs}, live, meta] = await Promise.all([
+          list({prefix: HISTORY_PREFIX, limit: HISTORY_KEEP}),
+          readLive(),
+          readMeta(),
+        ]);
         const history = blobs
-          .sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt))
-          .map(b => ({id: b.pathname, uploadedAt: b.uploadedAt}));
+          .map(b => {
+            const version = versionFromPathname(b.pathname);
+            return {
+              id: b.pathname,
+              version,
+              publishedAt: versionToIso(version, toIso(b.uploadedAt)),
+              description: meta[version] || null,
+            };
+          })
+          .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+        if (live && live.version) {
+          const version = String(live.version);
+          // A versão que está no ar ainda não foi arquivada; entra no topo, sem opção de restaurar.
+          history.unshift({
+            id: null,
+            version,
+            publishedAt: versionToIso(version, null),
+            description: live.description || meta[version] || null,
+            current: true,
+          });
+        }
         return response.status(200).json({history});
       } catch (err) {
         console.error('Erro ao listar histórico:', err);
@@ -130,8 +212,14 @@ export default async function handler(request, response) {
         const text = await new Response(result.stream).text();
         const snapshot = JSON.parse(text);
         const current = await readLive();
-        await snapshotCurrentLive(current); // preserva o estado atual antes de restaurar
-        const version = await writeLive(snapshot.nodes);
+        const restoredAt = versionToIso(snapshot.version ?? versionFromPathname(id), null);
+        const when = restoredAt
+          ? new Date(restoredAt).toLocaleString('pt-BR', {dateStyle: 'short', timeStyle: 'short', timeZone: 'America/Sao_Paulo'})
+          : 'data desconhecida';
+        const description = `Restaurada a versão de ${when}`;
+        const kept = await snapshotCurrentLive(current); // preserva o estado atual antes de restaurar
+        const version = await writeLive(snapshot.nodes, description);
+        await recordDescription(version, description, kept);
         return response.status(200).json({ok: true, count: snapshot.nodes.length, version});
       } catch (err) {
         console.error('Erro ao restaurar versão do histórico:', err);
@@ -143,6 +231,11 @@ export default async function handler(request, response) {
     const payload = body.nodes;
     if (!Array.isArray(payload) || !payload.length) {
       return response.status(400).json({error: 'O corpo enviado precisa ser uma lista (array) de nodes, com pelo menos 1 item.'});
+    }
+
+    const description = typeof body.description === 'string' ? body.description.trim().slice(0, DESCRIPTION_MAX) : '';
+    if (!description) {
+      return response.status(400).json({error: 'Descreva brevemente as alterações antes de publicar.'});
     }
 
     const duplicates = findDuplicateNodes(payload);
@@ -161,8 +254,9 @@ export default async function handler(request, response) {
         });
       }
 
-      await snapshotCurrentLive(current);
-      const version = await writeLive(payload);
+      const kept = await snapshotCurrentLive(current);
+      const version = await writeLive(payload, description);
+      await recordDescription(version, description, kept);
       return response.status(200).json({ok: true, count: payload.length, version});
     } catch (err) {
       console.error('Erro ao salvar no Vercel Blob:', err);

@@ -88,7 +88,7 @@
 .olt-name{font-family:var(--mono);font-size:13px;font-weight:600;word-break:break-all}
 .olt-meta{margin-left:auto;font-size:12px;color:var(--text-faint);white-space:nowrap}
 .pon-table{border-top:1px solid var(--border-soft);background:var(--surface)}
-.pon-row{display:grid;grid-template-columns:64px 112px minmax(0,1fr) 92px 62px 128px;align-items:center;gap:10px;padding:8px 12px;font-size:13px}
+.pon-row{display:grid;grid-template-columns:64px 112px minmax(0,1fr) 92px 128px;align-items:center;gap:10px;padding:8px 12px;font-size:13px}
 .pon-header{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-faint);border-bottom:1px solid var(--border-soft);padding-top:7px;padding-bottom:7px}
 .pon-item{border-bottom:1px solid var(--border-soft)}
 .pon-item:last-child{border-bottom:0}
@@ -96,11 +96,10 @@
 .pon-item>.pon-row:hover{background:var(--surface-2)}
 .pon-item.open{background:var(--surface-2)}
 .pon-item.unused{opacity:.5}
-.pon-port,.pon-node,.pon-vlan,.pon-cli{font-family:var(--mono)}
+.pon-port,.pon-node,.pon-vlan{font-family:var(--mono)}
 .pon-node,.pon-vlan,.pon-bairro{display:flex;align-items:center;gap:6px;min-width:0}
 .pon-node{font-weight:600}
 .pon-bairro{color:var(--text-dim);overflow:hidden}
-.pon-cli{color:var(--text-faint)}
 .pon-actions{display:flex;align-items:center;gap:6px;justify-content:flex-end}
 .pon-item .card-detail{margin:0;padding:12px 14px 14px;border-top:1px dashed var(--border-soft)}
 .recent{margin-top:28px;background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px 16px}
@@ -117,7 +116,6 @@
 .pon-header{display:none}
 .pon-row{grid-template-columns:auto auto minmax(0,1fr) auto;grid-template-areas:"port node vlan actions" "bairro bairro bairro bairro";gap:4px 10px}
 .pon-row .pon-port{grid-area:port}.pon-row .pon-node{grid-area:node}.pon-row .pon-vlan{grid-area:vlan}.pon-row .pon-actions{grid-area:actions}.pon-row .pon-bairro{grid-area:bairro}
-.pon-row .pon-cli{display:none}
 .olt-meta{margin-left:0;width:100%;padding-left:19px}
 .recent li{flex-direction:column;gap:2px}
 }

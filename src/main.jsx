@@ -306,7 +306,7 @@ function App(){
                {techBadges(olt.techs)}
              </div>
              {isOpen&&<div className="pon-table">
-               <div className="pon-row pon-header"><span>PON</span><span>Node</span><span>Bairro</span><span>VLAN</span><span>Clientes</span><span/></div>
+               <div className="pon-row pon-header"><span>PON</span><span>Node</span><span>Bairro</span><span>VLAN</span><span/></div>
                {olt.rows.map(({item,idx})=>{
                  const rk=`${oKey}#${idx}`, rowOpen=openRow===rk, used=isUsed(item);
                  return <div className={`pon-item ${used?'':'unused'} ${rowOpen?'open':''}`} key={rk}>
@@ -315,7 +315,6 @@ function App(){
                      <span className="pon-node">{item.Node||'—'}{copyIcon(`${rk}-node`,item.Node,'Copiar node')}</span>
                      <span className="pon-bairro">{item.Bairro}{copyIcon(`${rk}-bairro`,item.Bairro,'Copiar bairro')}</span>
                      <span className="pon-vlan">{item.VLAN||'—'}{copyIcon(`${rk}-vlan`,item.VLAN,'Copiar VLAN')}</span>
-                     <span className="pon-cli">{item.Qtd_Clientes||'—'}</span>
                      <span className="pon-actions">
                        <button type="button" className={`copy-btn sm ${copiedKey===`${rk}-all`?'done':''}`} onClick={e=>{e.stopPropagation();copyField(`${rk}-all`,buildCopyText(item))}} onKeyDown={e=>e.stopPropagation()} title="Copiar node, bairro, VLAN, OLT, porta e DIO">{copiedKey===`${rk}-all`?'✓ Copiado':'⧉ Tudo'}</button>
                        <button type="button" className="edit-btn" onClick={e=>{e.stopPropagation();openEditForm(item)}} onKeyDown={e=>e.stopPropagation()} title="Editar este node">✎</button>

@@ -60,6 +60,7 @@ function App(){
  const [historyLoading,setHistoryLoading]=useState(false);
  const [publishing,setPublishing]=useState(null); // janela "Salvar para todos": {description, password, error} ou null
  const [showPublishPass,setShowPublishPass]=useState(false);
+ const [menuOpen,setMenuOpen]=useState(false); // menu dropdown da navbar (só aparece em telas pequenas)
  const fileInputRef=useRef(null);
 
  function loadFromServer(){
@@ -225,10 +226,15 @@ function App(){
    setEditing(null);
  }
 
+ // Mini botão de copiar usado nos cards (ao lado de node, bairro, OLT e VLAN).
+ const copyIcon=(key,value,title)=>value?<button type="button" className={`copy-btn sm ${copiedKey===key?'done':''}`} onClick={e=>{e.stopPropagation();copyField(key,value)}} onKeyDown={e=>e.stopPropagation()} title={title}>{copiedKey===key?'✓':'⧉'}</button>:null;
+
  return <>
+ {menuOpen&&<div className="navbar-scrim" onClick={()=>setMenuOpen(false)}/>}
  <nav className="navbar">
    <img className="navbar-logo" src="/logo.png" alt="NR Conexões"/>
-   <div className="navbar-actions">
+   <button type="button" className="navbar-toggle" onClick={()=>setMenuOpen(o=>!o)} aria-expanded={menuOpen} aria-controls="navbar-menu" aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?'✕':'☰'}{dirty&&!menuOpen&&<span className="pending-dot"/>}</button>
+   <div id="navbar-menu" className={`navbar-actions ${menuOpen?'open':''}`} onClick={()=>setMenuOpen(false)}>
      <input type="file" accept="application/json,.json" ref={fileInputRef} onChange={handleImportFile} style={{display:'none'}}/>
      <button className="chip io add" onClick={openAddForm} title="Adicionar um novo node à base">+ Novo node</button>
      <button className="chip io" onClick={handleImportClick} title="Carregar uma base .json neste navegador (ainda não fica visível para outras pessoas)">⭱ Importar JSON</button>
@@ -251,16 +257,16 @@ function App(){
   <div className="meta-row"><span>{data.length.toLocaleString('pt-BR')} nodes carregados</span><span className="count">{filtered.length.toLocaleString('pt-BR')} resultado(s)</span></div>
   <div className="results">{filtered.slice(0,500).map((item,i)=><article key={`${item.Node}-${i}`} className={`card ${(item.Tecnologia||'').toLowerCase()} ${open===i?'open':''}`}>
     <div className="card-head" role="button" tabIndex={0} onClick={()=>setOpen(open===i?null:i)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setOpen(open===i?null:i)}}}>
-      <div className="card-id"><div className="node"><span className="tech-dot"/>NODE {highlight(item.Node,q)}</div><div className="bairro-row"><div className="bairro">{highlight(item.Bairro,q)}</div>{item.Bairro&&<button type="button" className={`copy-btn sm ${copiedKey===`${i}-bairro`?'done':''}`} onClick={e=>{e.stopPropagation();copyField(`${i}-bairro`,item.Bairro)}} onKeyDown={e=>e.stopPropagation()} title="Copiar bairro">{copiedKey===`${i}-bairro`?'✓':'⧉'}</button>}</div></div>
+      <div className="card-id"><div className="node"><span className="tech-dot"/>NODE {highlight(item.Node,q)}{copyIcon(`${i}-node`,item.Node,'Copiar node')}</div><div className="bairro-row"><div className="bairro">{highlight(item.Bairro,q)}</div>{copyIcon(`${i}-bairro`,item.Bairro,'Copiar bairro')}</div></div>
       <div className="card-right">
         <span className={`badge ${(item.Tecnologia||'').toLowerCase()}`}>{item.Tecnologia}</span>
-        <span className="vlan-tag">VLAN {highlight(item.VLAN,q)}</span>
-        <button type="button" className={`copy-btn copy-all ${copiedKey===`${i}-all`?'done':''}`} onClick={e=>{e.stopPropagation();copyField(`${i}-all`,buildCopyText(item))}} onKeyDown={e=>e.stopPropagation()} title="Copiar node, bairro, VLAN, OLT, porta e DIO"><span>{copiedKey===`${i}-all`?'✓':'⧉'}</span><span className="copy-txt">{copiedKey===`${i}-all`?'Copiado':'Copiar tudo'}</span></button>
+        <span className="vlan-group"><span className="vlan-tag">VLAN {highlight(item.VLAN,q)}</span>{copyIcon(`${i}-vlan`,item.VLAN,'Copiar VLAN')}</span>
         <button className="edit-btn" onClick={e=>{e.stopPropagation();openEditForm(item)}} title="Editar este node">✎</button>
         <span className="caret">▶</span>
       </div>
     </div>
-    <div className="card-summary-row"><span>Cidade/POP: <b>{highlight(item.Cidade_POP,q)}</b></span><span>OLT: <b>{highlight(item.OLT,q)}</b></span><span>PON: <b>{highlight(item.PON,q)}</b></span><span>Clientes: <b>{highlight(item.Qtd_Clientes,q)}</b></span></div>
+    <div className="card-summary-row"><span>Cidade/POP: <b>{highlight(item.Cidade_POP,q)}</b></span><span className="has-copy">OLT: <b>{highlight(item.OLT,q)}</b>{copyIcon(`${i}-olt`,item.OLT,'Copiar OLT')}</span><span>PON: <b>{highlight(item.PON,q)}</b></span><span>Clientes: <b>{highlight(item.Qtd_Clientes,q)}</b></span><span className="has-copy sum-vlan">VLAN: <b>{highlight(item.VLAN,q)}</b>{copyIcon(`${i}-vlan`,item.VLAN,'Copiar VLAN')}</span></div>
+    <div className="card-actions"><button type="button" className={`copy-btn copy-all ${copiedKey===`${i}-all`?'done':''}`} onClick={()=>copyField(`${i}-all`,buildCopyText(item))} title="Copiar node, bairro, VLAN, OLT, porta e DIO"><span>{copiedKey===`${i}-all`?'✓':'⧉'}</span><span className="copy-txt">{copiedKey===`${i}-all`?'Copiado':'Copiar tudo'}</span></button></div>
     {open===i&&<div className="card-detail"><div className="grid">{fields.map(([label,key])=>{const raw=item[key];const masked=key==='Senha_Gerencia'&&raw&&!showPass;const copyable=copyableFields.includes(key);return <div className={`field ${freeTextKeys.includes(key)?'obs':''}`} key={key}><div className="lbl">{label}</div><div className="val-row"><div className={`val ${!raw?'empty':''}`}>{!raw?'Não informado':masked?'••••••••':highlight(raw,q)}</div>{copyable&&raw&&<button type="button" className="copy-btn" onClick={()=>copyField(`${i}-${key}`,raw)} title="Copiar">{copiedKey===`${i}-${key}`?'✓':'⧉'}</button>}</div></div>})}</div></div>}
   </article>)}</div>
   {!filtered.length&&<div className="empty-state"><div className="big">⌕</div><p>Nenhum node encontrado com esses filtros.</p></div>}{filtered.length>500&&<div className="too-many">Exibindo os primeiros 500 resultados. Refine sua busca para encontrar um ponto específico.</div>}

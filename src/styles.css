@@ -44,4 +44,20 @@
 .publish-form{display:flex;flex-direction:column;gap:12px}
 .char-count{align-self:flex-end;margin-top:-6px;font-size:11px;color:var(--text-faint);font-family:var(--mono)}
 .publish-form .io-msg{margin-top:0}
-@media(max-width:560px){.copy-btn.copy-all{min-width:0;padding:2px 7px}.copy-all .copy-txt{display:none}}
+.vlan-group{display:flex;align-items:center;gap:6px}
+.node .copy-btn{margin-left:2px}
+.card-summary-row .has-copy{display:inline-flex;align-items:center;gap:6px}
+.card-summary-row .sum-vlan{display:none}
+.card-actions{margin-top:10px}
+.navbar-toggle{display:none;position:relative;margin-left:auto;align-items:center;justify-content:center;width:40px;height:36px;background:none;border:1px solid var(--border);color:var(--text);border-radius:8px;font-size:18px;line-height:1;cursor:pointer}
+.navbar-toggle:hover{background:var(--surface-2)}
+.navbar-toggle .pending-dot{position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;background:var(--fiber-orange)}
+.navbar-scrim{display:none}
+@media(max-width:560px){.vlan-group{display:none}.card-summary-row .sum-vlan{display:inline-flex}}
+@media(max-width:768px){
+.navbar-toggle{display:flex}
+.navbar-actions{display:none;position:absolute;top:56px;left:0;right:0;flex:none;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;overflow:visible;padding:12px 14px 14px;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:0 14px 30px #00000066}
+.navbar-actions.open{display:flex}
+.navbar-actions .chip{width:100%;text-align:left;padding:10px 14px}
+.navbar-scrim{display:block;position:fixed;inset:56px 0 0 0;background:#050914a8;z-index:55}
+}

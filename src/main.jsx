@@ -17,6 +17,13 @@ const DESCRIPTION_MAX=300;
 const copySummaryFields=[['Node','Node'],['Bairro','Bairro'],['VLAN','VLAN'],['OLT','OLT'],['Porta','PON'],['DIO','DIO']];
 // Na cópia, a porta vai só com o número final ("1/1/3" -> "3").
 function portNumber(pon){ return String(pon).split('/').pop().trim(); }
+// Ordenação "natural" das PONs ("2" antes de "10", "1/15/2" antes de "1/15/10").
+const natKey=s=>String(s??'').split(/[^0-9]+/).filter(Boolean).map(Number);
+function cmpNat(a,b){ const A=natKey(a),B=natKey(b); for(let i=0;i<Math.max(A.length,B.length);i++){ const d=(A[i]??-1)-(B[i]??-1); if(d) return d; } return 0; }
+// Porta livre/sem uso não conta como node em uso.
+const isUsed=item=>{ const n=normalize(item.Node).trim(); return n!==''&&n!=='-'&&n!=='sem uso'; };
+const HOME_KEY='busca-nodes:home';
+function loadHomePrefs(){ try{ return JSON.parse(localStorage.getItem(HOME_KEY))||{}; }catch(e){ return {}; } }
 // Tudo numa linha só, cada campo separado por espaços.
 function buildCopyText(item){
   return copySummaryFields
@@ -61,6 +68,10 @@ function App(){
  const [publishing,setPublishing]=useState(null); // janela "Salvar para todos": {description, password, error} ou null
  const [showPublishPass,setShowPublishPass]=useState(false);
  const [menuOpen,setMenuOpen]=useState(false); // menu dropdown da navbar (só aparece em telas pequenas)
+ const [openPop,setOpenPop]=useState(()=>loadHomePrefs().pop||null); // POP aberto no quadro da página inicial
+ const [openOlt,setOpenOlt]=useState(()=>loadHomePrefs().olt||null); // OLT aberta dentro do POP
+ const [openRow,setOpenRow]=useState(null); // linha (PON) com os detalhes abertos
+ const [recent,setRecent]=useState(null); // últimas publicações, para a faixa "Últimas alterações"
  const fileInputRef=useRef(null);
 
  function loadFromServer(){
@@ -71,10 +82,17 @@ function App(){
      });
  }
 
+ function loadRecent(){
+   // Se a API não existir (ex.: "vite dev" puro), a faixa simplesmente não aparece.
+   return fetch(`${API_URL}?history=1`).then(r=>{ if(!r.ok) throw new Error('resposta '+r.status); return r.json(); })
+     .then(body=>setRecent((body.history||[]).slice(0,4))).catch(()=>{});
+ }
+
  useEffect(()=>{
    // Se /api/nodes não existir (ex.: rodando "vite dev" puro, sem "vercel dev"), mantém a base
    // empacotada silenciosamente — não há necessidade de incomodar o usuário com esse detalhe.
    loadFromServer().catch(()=>{});
+   loadRecent();
  },[]);
 
  const cities=useMemo(()=>[...new Set(data.map(x=>x.Cidade_POP).filter(Boolean))].sort(),[data]);
@@ -88,7 +106,27 @@ function App(){
    return list.map((item,idx)=>({item,idx,score:matchScore(item,q)})).sort((a,b)=>a.score-b.score||a.idx-b.idx).map(x=>x.item);
  },[q,tech,city,data]);
 
- function resetView(){ setQ(''); setTech('ALL'); setCity(''); setOpen(null); }
+ // Quadro da página inicial: POP -> OLT -> PONs (respeitando os filtros de tecnologia e cidade).
+ const board=useMemo(()=>{
+   const pops=new Map();
+   data.forEach((item,idx)=>{
+     if(tech!=='ALL'&&item.Tecnologia!==tech) return;
+     if(city&&item.Cidade_POP!==city) return;
+     const popName=item.Cidade_POP||'Sem POP', oltName=item.OLT||'Sem OLT';
+     if(!pops.has(popName)) pops.set(popName,{name:popName,olts:new Map(),techs:new Set(),nodes:0});
+     const pop=pops.get(popName);
+     if(!pop.olts.has(oltName)) pop.olts.set(oltName,{name:oltName,rows:[],techs:new Set(),used:0});
+     const olt=pop.olts.get(oltName);
+     olt.rows.push({item,idx});
+     if(item.Tecnologia){ pop.techs.add(item.Tecnologia); olt.techs.add(item.Tecnologia); }
+     if(isUsed(item)){ olt.used++; pop.nodes++; }
+   });
+   return [...pops.values()].sort((a,b)=>a.name.localeCompare(b.name,'pt-BR')).map(pop=>({...pop,olts:[...pop.olts.values()].map(olt=>({...olt,rows:olt.rows.sort((a,b)=>cmpNat(a.item.PON,b.item.PON)||a.idx-b.idx)}))}));
+ },[data,tech,city]);
+
+ useEffect(()=>{ try{ localStorage.setItem(HOME_KEY,JSON.stringify({pop:openPop,olt:openOlt})); }catch(e){} },[openPop,openOlt]);
+
+ function resetView(){ setQ(''); setTech('ALL'); setCity(''); setOpen(null); setOpenRow(null); }
 
  function flashMsg(type,text){ setIoMsg({type,text}); setTimeout(()=>setIoMsg(m=>m&&m.text===text?null:m),5000); }
 
@@ -151,6 +189,7 @@ function App(){
        setDirty(false);
        setServerVersion(body.version??null);
        setPublishing(null);
+       loadRecent();
        flashMsg('ok',`Publicado! Todos os visitantes já veem esta base (${body.count?.toLocaleString('pt-BR')} nodes).`);
      })
      .catch(err=>setPublishing(p=>p&&({...p,error:`Falha ao publicar: ${err.message}`})))
@@ -180,7 +219,7 @@ function App(){
        closeHistory();
        return loadFromServer();
      })
-     .then(()=>flashMsg('ok','Versão restaurada e publicada.'))
+     .then(()=>{loadRecent();flashMsg('ok','Versão restaurada e publicada.');})
      .catch(err=>flashMsg('error',`Falha ao restaurar: ${err.message}`));
  }
 
@@ -222,12 +261,84 @@ function App(){
      flashMsg('ok',`Node "${node}" atualizado. Clique em "Salvar para todos" para publicar.`);
    }
    setDirty(true);
+   setOpenRow(null);
    setOpen(null); // índices do card aberto podem não bater mais depois da alteração
    setEditing(null);
  }
 
  // Mini botão de copiar usado nos cards (ao lado de node, bairro, OLT e VLAN).
  const copyIcon=(key,value,title)=>value?<button type="button" className={`copy-btn sm ${copiedKey===key?'done':''}`} onClick={e=>{e.stopPropagation();copyField(key,value)}} onKeyDown={e=>e.stopPropagation()} title={title}>{copiedKey===key?'✓':'⧉'}</button>:null;
+
+ // Detalhes completos de um node (usado nos cards da busca e nas linhas do quadro).
+ const renderDetail=(item,prefix)=><div className="card-detail"><div className="grid">{fields.map(([label,key])=>{const raw=item[key];const masked=key==='Senha_Gerencia'&&raw&&!showPass;const copyable=copyableFields.includes(key);return <div className={`field ${freeTextKeys.includes(key)?'obs':''}`} key={key}><div className="lbl">{label}</div><div className="val-row"><div className={`val ${!raw?'empty':''}`}>{!raw?'Não informado':masked?'••••••••':highlight(raw,q)}</div>{copyable&&raw&&<button type="button" className="copy-btn" onClick={()=>copyField(`${prefix}-${key}`,raw)} title="Copiar">{copiedKey===`${prefix}-${key}`?'✓':'⧉'}</button>}</div></div>})}</div></div>;
+
+
+ // ----- Página inicial: quadro de POPs -> OLTs -> PONs + últimas alterações -----
+ const totalOlts=board.reduce((n,p)=>n+p.olts.length,0);
+ const totalNodes=board.reduce((n,p)=>n+p.nodes,0);
+ const techBadges=techs=>[...techs].sort().map(t=><span key={t} className={`badge sm ${t.toLowerCase()}`}>{t}</span>);
+ function togglePop(name,elId){
+   if(openPop===name){ setOpenPop(null); return; }
+   setOpenPop(name); setOpenOlt(null); setOpenRow(null);
+   setTimeout(()=>document.getElementById(elId)?.scrollIntoView({behavior:'smooth',block:'start'}),60);
+ }
+ const toggleOlt=key=>{ setOpenOlt(o=>o===key?null:key); setOpenRow(null); };
+ const keyAct=fn=>e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); fn(); } };
+ const homeView=<div className="home">
+   <div className="meta-row"><span>{data.length.toLocaleString('pt-BR')} nodes carregados</span><span className="count">{board.length} POP{board.length===1?'':'s'} · {totalOlts} OLT{totalOlts===1?'':'s'} · {totalNodes.toLocaleString('pt-BR')} em uso</span></div>
+   <div className="pop-grid">{board.map((pop,pi)=>{
+     const active=openPop===pop.name, elId=`pop-${pi}`;
+     return <React.Fragment key={pop.name}>
+       <button type="button" id={elId} className={`pop-card ${active?'active':''}`} aria-expanded={active} onClick={()=>togglePop(pop.name,elId)}>
+         <span className="pop-name">{pop.name}</span>
+         <span className="pop-meta"><span><b>{pop.nodes.toLocaleString('pt-BR')}</b> nodes</span><span><b>{pop.olts.length}</b> OLT{pop.olts.length===1?'':'s'}</span></span>
+         <span className="pop-foot"><span className="pop-techs">{techBadges(pop.techs)}</span><span className="caret">▶</span></span>
+       </button>
+       {active&&<div className="pop-panel">
+         <div className="pop-panel-head"><h3>{pop.name}</h3><button type="button" className="link-btn" onClick={()=>setOpenPop(null)}>Fechar ✕</button></div>
+         {pop.olts.map(olt=>{
+           const oKey=`${pop.name}||${olt.name}`, isOpen=openOlt===oKey;
+           return <div className={`olt-block ${isOpen?'open':''}`} key={oKey}>
+             <div className="olt-head" role="button" tabIndex={0} aria-expanded={isOpen} onClick={()=>toggleOlt(oKey)} onKeyDown={keyAct(()=>toggleOlt(oKey))}>
+               <span className="caret">▶</span>
+               <span className="olt-name">{olt.name}</span>{copyIcon(`${oKey}-olt`,olt.name,'Copiar OLT')}
+               <span className="olt-meta">{olt.used}/{olt.rows.length} PONs em uso</span>
+               {techBadges(olt.techs)}
+             </div>
+             {isOpen&&<div className="pon-table">
+               <div className="pon-row pon-header"><span>PON</span><span>Node</span><span>Bairro</span><span>VLAN</span><span>Clientes</span><span/></div>
+               {olt.rows.map(({item,idx})=>{
+                 const rk=`${oKey}#${idx}`, rowOpen=openRow===rk, used=isUsed(item);
+                 return <div className={`pon-item ${used?'':'unused'} ${rowOpen?'open':''}`} key={rk}>
+                   <div className="pon-row" role="button" tabIndex={0} aria-expanded={rowOpen} onClick={()=>setOpenRow(rowOpen?null:rk)} onKeyDown={keyAct(()=>setOpenRow(rowOpen?null:rk))}>
+                     <span className="pon-port">{item.PON||'—'}</span>
+                     <span className="pon-node">{item.Node||'—'}{copyIcon(`${rk}-node`,item.Node,'Copiar node')}</span>
+                     <span className="pon-bairro">{item.Bairro}{copyIcon(`${rk}-bairro`,item.Bairro,'Copiar bairro')}</span>
+                     <span className="pon-vlan">{item.VLAN||'—'}{copyIcon(`${rk}-vlan`,item.VLAN,'Copiar VLAN')}</span>
+                     <span className="pon-cli">{item.Qtd_Clientes||'—'}</span>
+                     <span className="pon-actions">
+                       <button type="button" className={`copy-btn sm ${copiedKey===`${rk}-all`?'done':''}`} onClick={e=>{e.stopPropagation();copyField(`${rk}-all`,buildCopyText(item))}} onKeyDown={e=>e.stopPropagation()} title="Copiar node, bairro, VLAN, OLT, porta e DIO">{copiedKey===`${rk}-all`?'✓ Copiado':'⧉ Tudo'}</button>
+                       <button type="button" className="edit-btn" onClick={e=>{e.stopPropagation();openEditForm(item)}} onKeyDown={e=>e.stopPropagation()} title="Editar este node">✎</button>
+                     </span>
+                   </div>
+                   {rowOpen&&renderDetail(item,rk)}
+                 </div>;
+               })}
+             </div>}
+           </div>;
+         })}
+       </div>}
+     </React.Fragment>;
+   })}</div>
+   {!board.length&&<div className="empty-state"><div className="big">⌕</div><p>Nenhum POP com esses filtros.</p></div>}
+   {recent&&recent.length>0&&<section className="recent">
+     <div className="recent-head"><h2>Últimas alterações</h2><button type="button" className="link-btn" onClick={openHistory}>Ver histórico completo</button></div>
+     <ul>{recent.map(h=><li key={h.version||h.id}>
+       <span className="recent-date">{formatHistoryDate(h.publishedAt||h.uploadedAt)}{h.current&&<span className="badge-current">Atual</span>}</span>
+       <span className={`recent-desc ${h.description?'':'empty'}`}>{h.description||'Sem descrição'}</span>
+     </li>)}</ul>
+   </section>}
+ </div>;
 
  return <>
  {menuOpen&&<div className="navbar-scrim" onClick={()=>setMenuOpen(false)}/>}
@@ -250,10 +361,11 @@ function App(){
   <div className="sticky-search">
    <div className="searchbar"><input value={q} onChange={e=>{setQ(e.target.value);setOpen(null)}} placeholder="ex.: 1031, VLAN 620, G8PSX-01-LME, Panorama…" autoComplete="off" spellCheck="false"/>{q&&<button className="clear" onClick={()=>setQ('')} aria-label="Limpar">×</button>}</div>
    <div className="hint">Busca por parte do texto ou número — funciona mesmo digitando só um dos dois números em nodes combinados (ex. "93 / 27").</div>
-   <div className="filters">{[['ALL','Todas as tecnologias'],['GPON','GPON'],['EPON','EPON']].map(([t,label])=><button key={t} className={`chip ${tech===t?'active':''}`} data-tech={t} onClick={()=>{setTech(t);setOpen(null)}}>{t!=='ALL'&&<span className="swatch"/>}{label}</button>)}<select className="city-select" value={city} onChange={e=>{setCity(e.target.value);setOpen(null)}}><option value="">Todas as cidades / POPs</option>{cities.map(c=><option key={c}>{c}</option>)}</select></div>
+   <div className="filters">{[['ALL','Todas as tecnologias'],['GPON','GPON'],['EPON','EPON']].map(([t,label])=><button key={t} className={`chip ${tech===t?'active':''}`} data-tech={t} onClick={()=>{setTech(t);setOpen(null)}}>{t!=='ALL'&&<span className="swatch"/>}{label}</button>)}<select className="city-select" value={city} onChange={e=>{setCity(e.target.value);setOpen(null);setOpenRow(null);if(e.target.value){setOpenPop(e.target.value);}}}><option value="">Todas as cidades / POPs</option>{cities.map(c=><option key={c}>{c}</option>)}</select></div>
   </div>
   {dirty&&<div className="io-msg pending">Você importou uma base neste navegador que ainda não foi publicada. Clique em "Salvar para todos" para que ela valha para todo mundo que acessa o site.</div>}
   {ioMsg&&<div className={`io-msg ${ioMsg.type}`}>{ioMsg.text}</div>}
+  {!q.trim()?homeView:<>
   <div className="meta-row"><span>{data.length.toLocaleString('pt-BR')} nodes carregados</span><span className="count">{filtered.length.toLocaleString('pt-BR')} resultado(s)</span></div>
   <div className="results">{filtered.slice(0,500).map((item,i)=><article key={`${item.Node}-${i}`} className={`card ${(item.Tecnologia||'').toLowerCase()} ${open===i?'open':''}`}>
     <div className="card-head" role="button" tabIndex={0} onClick={()=>setOpen(open===i?null:i)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setOpen(open===i?null:i)}}}>
@@ -267,9 +379,10 @@ function App(){
     </div>
     <div className="card-summary-row"><span>Cidade/POP: <b>{highlight(item.Cidade_POP,q)}</b></span><span className="has-copy">OLT: <b>{highlight(item.OLT,q)}</b>{copyIcon(`${i}-olt`,item.OLT,'Copiar OLT')}</span><span>PON: <b>{highlight(item.PON,q)}</b></span><span>Clientes: <b>{highlight(item.Qtd_Clientes,q)}</b></span><span className="has-copy sum-vlan">VLAN: <b>{highlight(item.VLAN,q)}</b>{copyIcon(`${i}-vlan`,item.VLAN,'Copiar VLAN')}</span></div>
     <div className="card-actions"><button type="button" className={`copy-btn copy-all ${copiedKey===`${i}-all`?'done':''}`} onClick={()=>copyField(`${i}-all`,buildCopyText(item))} title="Copiar node, bairro, VLAN, OLT, porta e DIO"><span>{copiedKey===`${i}-all`?'✓':'⧉'}</span><span className="copy-txt">{copiedKey===`${i}-all`?'Copiado':'Copiar tudo'}</span></button></div>
-    {open===i&&<div className="card-detail"><div className="grid">{fields.map(([label,key])=>{const raw=item[key];const masked=key==='Senha_Gerencia'&&raw&&!showPass;const copyable=copyableFields.includes(key);return <div className={`field ${freeTextKeys.includes(key)?'obs':''}`} key={key}><div className="lbl">{label}</div><div className="val-row"><div className={`val ${!raw?'empty':''}`}>{!raw?'Não informado':masked?'••••••••':highlight(raw,q)}</div>{copyable&&raw&&<button type="button" className="copy-btn" onClick={()=>copyField(`${i}-${key}`,raw)} title="Copiar">{copiedKey===`${i}-${key}`?'✓':'⧉'}</button>}</div></div>})}</div></div>}
+    {open===i&&renderDetail(item,String(i))}
   </article>)}</div>
   {!filtered.length&&<div className="empty-state"><div className="big">⌕</div><p>Nenhum node encontrado com esses filtros.</p></div>}{filtered.length>500&&<div className="too-many">Exibindo os primeiros 500 resultados. Refine sua busca para encontrar um ponto específico.</div>}
+  </>}
   <footer><span>Base compartilhada, publicada via <code>/api/nodes</code> (Vercel Blob).</span><span>Projeto Vite + React</span></footer>
  </div>
  {editing&&<div className="modal-backdrop" onClick={closeEditForm}>

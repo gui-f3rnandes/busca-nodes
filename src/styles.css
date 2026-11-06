@@ -120,3 +120,20 @@
 .recent li{flex-direction:column;gap:2px}
 }
 @media(max-width:420px){.pop-grid{grid-template-columns:1fr}}
+
+/* ===== Correções de responsividade (celular) ===== */
+html,body{max-width:100%}
+body{overflow-x:hidden;overflow-x:clip}
+.wrap{min-width:0}
+.filters .city-select{min-width:0;max-width:100%;text-overflow:ellipsis}
+.meta-row{flex-wrap:wrap;gap:4px 14px}
+@media(max-width:700px){.pop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){
+.filters .city-select{flex:1 1 100%;width:100%}
+.compare{grid-template-columns:minmax(0,1fr)}
+.compare-col{min-width:0}
+.form-field input,.form-field select,.form-field textarea{width:100%;min-width:0}
+.modal{max-width:100%}
+.sticky-search .hint{display:none}
+}
+@media(max-width:420px){.pop-grid{grid-template-columns:minmax(0,1fr)}}

@@ -347,8 +347,8 @@ function App(){
    <div id="navbar-menu" className={`navbar-actions ${menuOpen?'open':''}`} onClick={()=>setMenuOpen(false)}>
      <input type="file" accept="application/json,.json" ref={fileInputRef} onChange={handleImportFile} style={{display:'none'}}/>
      <button className="chip io add" onClick={openAddForm} title="Adicionar um novo node à base">+ Novo node</button>
-     <button className="chip io" onClick={handleImportClick} title="Carregar uma base .json neste navegador (ainda não fica visível para outras pessoas)">⭱ Importar JSON</button>
-     <button className="chip io" onClick={handleExport} title="Baixar a base atual em um arquivo .json">⭳ Exportar JSON</button>
+     <button className="chip io" onClick={handleImportClick} title="Carregar uma base .json neste navegador (ainda não fica visível para outras pessoas)">↑ Importar JSON</button>
+     <button className="chip io" onClick={handleExport} title="Baixar a base atual em um arquivo .json">↓ Exportar JSON</button>
      {dirty&&<button className="chip io publish" onClick={handlePublish} disabled={saving} title="Torna esta base a versão oficial do site, visível para todos os visitantes">{saving?'Publicando…':'✓ Salvar para todos'}</button>}
      {dirty&&<button className="chip io" onClick={handleDiscard} title="Descarta o que foi importado e recarrega a base publicada atualmente">Descartar alterações</button>}
      <button className="chip io" onClick={openHistory} title="Ver publicações anteriores e restaurar uma delas, se precisar">🕘 Histórico</button>

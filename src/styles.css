@@ -120,7 +120,7 @@ h1{
 .open .caret{@apply rotate-90}
 .card-summary-row{@apply mt-2 flex flex-wrap gap-x-[18px] gap-y-1.5 text-[12.5px] text-faint}
 .card-summary-row b{@apply font-mono font-medium text-dim}
-.card-detail{@apply mt-3.5 pt-1.5}
+.card-detail{@apply mt-3.5 border-t border-dashed border-line pt-3.5}
 .grid{@apply grid grid-cols-2 gap-x-[18px] gap-y-2.5}
 .field .lbl{@apply mb-0.5 font-mono text-[10.5px] uppercase tracking-wider text-faint}
 .val{@apply whitespace-pre-line break-words font-mono text-[13.5px] text-fg}
@@ -130,7 +130,7 @@ mark{@apply rounded-[3px] px-px text-[#1a1408];background:var(--color-mark);box-
 .empty-state{@apply px-5 py-[60px] text-center text-faint}
 .empty-state p{@apply m-0 mt-2}
 .empty-state .big{@apply text-[34px]}
-.too-many{@apply mt-1 p-3.5 text-center text-[12.5px] text-faint}
+.too-many{@apply mt-1 border-t border-dashed border-line-soft p-3.5 text-center text-[12.5px] text-faint}
 footer{@apply mt-10 flex flex-wrap justify-between gap-2 border-t border-line-soft pt-4 font-mono text-[11.5px] text-faint}
 
 /* ---------- barra de ferramentas / botões ---------- */
@@ -271,12 +271,12 @@ footer{@apply mt-10 flex flex-wrap justify-between gap-2 border-t border-line-so
 .pon-node{@apply font-semibold}
 .pon-bairro{@apply overflow-hidden text-dim}
 .pon-actions{@apply flex items-center justify-end gap-1.5}
-.pon-item .card-detail{@apply m-0 px-3.5 pt-2 pb-3.5}
+.pon-item .card-detail{@apply m-0 border-t border-dashed border-line-soft px-3.5 pt-3 pb-3.5}
 .recent{@apply mt-7 rounded-card border border-line-soft bg-surface/85 px-4 py-3 backdrop-blur}
 .recent-head{@apply mb-1.5 flex items-center justify-between gap-3}
 .recent-head h2{@apply m-0 font-mono text-xs font-semibold uppercase tracking-[.1em] text-dim}
 .recent ul{@apply m-0 list-none p-0}
-.recent li{@apply flex items-baseline gap-3.5 py-[7px] text-[13px]}
+.recent li{@apply flex items-baseline gap-3.5 border-t border-dashed border-line-soft py-[7px] text-[13px] first:border-t-0}
 .recent-date{@apply flex shrink-0 items-center gap-2 font-mono text-xs text-faint}
 .recent-desc{@apply min-w-0 break-words text-fg}
 .recent-desc.empty{@apply italic text-faint}
